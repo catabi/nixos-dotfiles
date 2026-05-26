@@ -1,0 +1,17 @@
+[EffectsPipelines]
+processAllOutputs=false
+
+[StreamInputs]
+inputDevice=alsa_input.usb-Elgato_Systems_Elgato_Wave_3_BS04K1A02366-00.mono-fallback
+plugins=gate#0,rnnoise#0,stereo_tools#0,compressor#0,equalizer#0,autogain#0,loudness#0
+visiblePage=pluginsPage
+visiblePlugin=rnnoise#0
+
+[StreamOutputs]
+blocklist=Chromium
+outputDevice=bluez_output.E8:EE:CC:7E:A1:89
+
+[Window]
+height=928
+visiblePage=inputPage
+width=1062

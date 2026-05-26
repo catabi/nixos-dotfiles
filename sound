@@ -1,0 +1,635 @@
+[4mCONFIGURATION.NIX[24m(5)                                                                                         NixOS Reference Pages                                                                                         [4mCONFIGURATION.NIX[24m(5)
+
+[1mNAME[0m
+       [4mconfiguration.nix[24m - NixOS system configuration specification
+
+[1mDESCRIPTION[0m
+       The file [4m/etc/nixos/configuration.nix[24m contains the declarative specification of your NixOS system configuration. The command [1mnixos-rebuild [22mtakes this file and realises the system configuration specified therein.
+
+[1mOPTIONS[0m
+       You can use the following options in [4mconfiguration.nix[24m.
+
+       [1m<imports = [ pkgs.ghostunnel.services.default ]>[0m
+           This is a [1mmodular service[22m[1], which can be imported into a NixOS configuration using the ‘system.services’[2] option.
+
+           [4mType:[24m submodule
+
+           [4mDeclared[24m [4mby:[0m
+               [1m<nixpkgs/nixos/modules/misc/documentation/modular-services.nix:21>[0m
+
+            [1m1. [22mhttps://nixos.org/manual/nixos/unstable/#modular-services
+            [1m2. [22mhttps://search.nixos.org/options?channel=unstable&show=system.services&query=modular+service
+
+       [1m<imports = [ pkgs.ghostunnel.services.default ]>.ghostunnel.package[0m
+           Package to use for ghostunnel
+
+           [4mType:[24m package
+
+           [4mDefault:[24m "The ghostunnel package that provided this module."
+
+           [4mDeclared[24m [4mby:[0m
+               [1m<nixpkgs/pkgs/by-name/gh/ghostunnel/service.nix>[0m
+
+       [1m<imports = [ pkgs.ghostunnel.services.default ]>.ghostunnel.allowAll[0m
+           If true, allow all clients, do not check client cert subject.
+
+           [4mType:[24m boolean
+
+           [4mDefault:[24m false
+
+           [4mDeclared[24m [4mby:[0m
+               [1m<nixpkgs/pkgs/by-name/gh/ghostunnel/service.nix>[0m
+
+       [1m<imports = [ pkgs.ghostunnel.services.default ]>.ghostunnel.allowCN[0m
+           Allow client if common name appears in the list.
+
+           [4mType:[24m list of string
+
+           [4mDefault:[24m [ ]
+
+           [4mDeclared[24m [4mby:[0m
+               [1m<nixpkgs/pkgs/by-name/gh/ghostunnel/service.nix>[0m
+
+       [1m<imports = [ pkgs.ghostunnel.services.default ]>.ghostunnel.allowDNS[0m
+           Allow client if DNS subject alternative name appears in the list.
+
+           [4mType:[24m list of string
+
+           [4mDefault:[24m [ ]
+
+           [4mDeclared[24m [4mby:[0m
+               [1m<nixpkgs/pkgs/by-name/gh/ghostunnel/service.nix>[0m
+
+       [1m<imports = [ pkgs.ghostunnel.services.default ]>.ghostunnel.allowOU[0m
+           Allow client if organizational unit name appears in the list.
+
+           [4mType:[24m list of string
+
+           [4mDefault:[24m [ ]
+
+           [4mDeclared[24m [4mby:[0m
+               [1m<nixpkgs/pkgs/by-name/gh/ghostunnel/service.nix>[0m
+
+       [1m<imports = [ pkgs.ghostunnel.services.default ]>.ghostunnel.allowURI[0m
+           Allow client if URI subject alternative name appears in the list.
+
+           [4mType:[24m list of string
+
+           [4mDefault:[24m [ ]
+
+           [4mDeclared[24m [4mby:[0m
+               [1m<nixpkgs/pkgs/by-name/gh/ghostunnel/service.nix>[0m
+
+       [1m<imports = [ pkgs.ghostunnel.services.default ]>.ghostunnel.cacert[0m
+           Path to CA bundle file (PEM/X509). Uses system trust store if ‘null’.
+
+           [4mType:[24m null or string
+
+           [4mDeclared[24m [4mby:[0m
+               [1m<nixpkgs/pkgs/by-name/gh/ghostunnel/service.nix>[0m
+
+       [1m<imports = [ pkgs.ghostunnel.services.default ]>.ghostunnel.cert[0m
+           Path to certificate (PEM with certificate chain).
+
+           Not required if ‘keystore’ is set.
+
+           [4mType:[24m null or string
+
+           [4mDefault:[24m null
+
+           [4mDeclared[24m [4mby:[0m
+               [1m<nixpkgs/pkgs/by-name/gh/ghostunnel/service.nix>[0m
+
+       [1m<imports = [ pkgs.ghostunnel.services.default ]>.ghostunnel.disableAuthentication[0m
+           Disable client authentication, no client certificate will be required.
+
+           [4mType:[24m boolean
+
+           [4mDefault:[24m false
+
+           [4mDeclared[24m [4mby:[0m
+               [1m<nixpkgs/pkgs/by-name/gh/ghostunnel/service.nix>[0m
+
+       [1m<imports = [ pkgs.ghostunnel.services.default ]>.ghostunnel.extraArguments[0m
+           Extra arguments to pass to ‘ghostunnel server’
+
+           [4mType:[24m list of string
+
+           [4mDefault:[24m [ ]
+
+           [4mDeclared[24m [4mby:[0m
+               [1m<nixpkgs/pkgs/by-name/gh/ghostunnel/service.nix>[0m
+
+       [1m<imports = [ pkgs.ghostunnel.services.default ]>.ghostunnel.key[0m
+           Path to certificate private key (PEM with private key).
+
+           Not required if ‘keystore’ is set.
+
+           [4mType:[24m null or string
+
+           [4mDefault:[24m null
+
+           [4mDeclared[24m [4mby:[0m
+               [1m<nixpkgs/pkgs/by-name/gh/ghostunnel/service.nix>[0m
+
+       [1m<imports = [ pkgs.ghostunnel.services.default ]>.ghostunnel.keystore[0m
+           Path to keystore (combined PEM with cert/key, or PKCS12 keystore).
+
+           NB: storepass is not supported because it would expose credentials via ‘/proc/*/cmdline’.
+
+           Specify this or ‘cert’ and ‘key’.
+
+           [4mType:[24m null or string
+
+           [4mDefault:[24m null
+
+           [4mDeclared[24m [4mby:[0m
+               [1m<nixpkgs/pkgs/by-name/gh/ghostunnel/service.nix>[0m
+
+       [1m<imports = [ pkgs.ghostunnel.services.default ]>.ghostunnel.listen[0m
+           Address and port to listen on (can be HOST:PORT, unix:PATH).
+
+           [4mType:[24m string
+
+           [4mDeclared[24m [4mby:[0m
+               [1m<nixpkgs/pkgs/by-name/gh/ghostunnel/service.nix>[0m
+
+       [1m<imports = [ pkgs.ghostunnel.services.default ]>.ghostunnel.target[0m
+           Address to forward connections to (can be HOST:PORT or unix:PATH).
+
+           [4mType:[24m string
+
+           [4mDeclared[24m [4mby:[0m
+               [1m<nixpkgs/pkgs/by-name/gh/ghostunnel/service.nix>[0m
+
+       [1m<imports = [ pkgs.ghostunnel.services.default ]>.ghostunnel.unsafeTarget[0m
+           If set, does not limit target to localhost, 127.0.0.1, [::1], or UNIX sockets.
+
+           This is meant to protect against accidental unencrypted traffic on untrusted networks.
+
+           [4mType:[24m boolean
+
+           [4mDefault:[24m false
+
+           [4mDeclared[24m [4mby:[0m
+               [1m<nixpkgs/pkgs/by-name/gh/ghostunnel/service.nix>[0m
+
+       [1m<imports = [ pkgs.php.services.default ]>[0m
+           This is a [1mmodular service[22m[1], which can be imported into a NixOS configuration using the ‘system.services’[2] option.
+
+           [4mType:[24m submodule
+
+           [4mDeclared[24m [4mby:[0m
+               [1m<nixpkgs/nixos/modules/misc/documentation/modular-services.nix:21>[0m
+
+            [1m1. [22mhttps://nixos.org/manual/nixos/unstable/#modular-services
+            [1m2. [22mhttps://search.nixos.org/options?channel=unstable&show=system.services&query=modular+service
+
+       [1m<imports = [ pkgs.php.services.default ]>.php-fpm.package[0m
+           PHP package to use for php-fpm
+
+           [4mType:[24m package
+
+           [4mDefault:[24m The PHP package that provided this module.
+
+           [4mExample:[0m
+
+               php.buildEnv {
+                 extensions =
+                   { all, ... }:
+                   with all;
+                   [
+                     imagick
+                     opcache
+                   ];
+                 extraConfig = "memory_limit=256M";
+               }
+
+           [4mDeclared[24m [4mby:[0m
+               [1m<nixpkgs/pkgs/development/interpreters/php/service.nix>[0m
+
+       [1m<imports = [ pkgs.php.services.default ]>.php-fpm.settings[0m
+           PHP FPM configuration. Refer to [1mupstream documentation[22m[1] for details on supported values.
+
+           [4mType:[24m open submodule of attribute set of (string or signed integer or boolean or (open submodule of attribute set of (string or signed integer or boolean)))
+
+           [4mDefault:[24m { }
+
+           [4mExample:[0m
+
+               {
+                 log_level = "debug";
+                 log_limit = 2048;
+
+                 mypool = {
+                   "user" = "php";
+                   "group" = "php";
+                   "listen.owner" = "caddy";
+                   "listen.group" = "caddy";
+                   "pm" = "dynamic";
+                   "pm.max_children" = 75;
+                   "pm.start_servers" = 10;
+                   "pm.min_spare_servers" = 5;
+                   "pm.max_spare_servers" = 20;
+                   "pm.max_requests" = 500;
+                 }
+               }
+
+           [4mDeclared[24m [4mby:[0m
+               [1m<nixpkgs/pkgs/development/interpreters/php/service.nix>[0m
+
+            [1m1. [22mhttps://www.php.net/manual/en/install.fpm.configuration.php
+
+       [1m<imports = [ pkgs.php.services.default ]>.php-fpm.settings.log_level[0m
+           Error log level.
+
+           [4mType:[24m one of “alert”, “error”, “warning”, “notice”, “debug”
+
+           [4mDefault:[24m "notice"
+
+           [4mDeclared[24m [4mby:[0m
+               [1m<nixpkgs/pkgs/development/interpreters/php/service.nix>[0m
+
+       [1m_module.args[0m
+           Additional arguments passed to each module in addition to ones like ‘lib’, ‘config’, and ‘pkgs’, ‘modulesPath’.
+
+           This option is also available to all submodules. Submodules do not inherit args from their parent module, nor do they provide args to their parent module or sibling submodules. The sole exception to this is the argument ‘name’
+           which is provided by parent modules to a submodule and contains the attribute name the submodule is bound to, or a unique generated name if it is not bound to an attribute.
+
+           Some arguments are already passed by default, of which the following [4mcannot[24m be changed with this option:
+
+             [1m• [4m[22mlib[24m: The nixpkgs library.
+
+             [1m• [4m[22mconfig[24m: The results of all options after merging the values from all modules together.
+
+             [1m• [4m[22moptions[24m: The options declared in all modules.
+
+             [1m• [4m[22mspecialArgs[24m: The ‘specialArgs’ argument passed to ‘evalModules’.
+
+             [1m• [22mAll attributes of [4mspecialArgs[0m
+
+               Whereas option values can generally depend on other option values thanks to laziness, this does not apply to ‘imports’, which must be computed statically before anything else.
+
+               For this reason, callers of the module system can provide ‘specialArgs’ which are available during import resolution.
+
+               For NixOS, ‘specialArgs’ includes [4mmodulesPath[24m, which allows you to import extra modules from the nixpkgs package tree without having to somehow make the module aware of the location of the ‘nixpkgs’ or NixOS directories.
+
+                   { modulesPath, ... }: {
+                     imports = [
+                       (modulesPath + "/profiles/minimal.nix")
+                     ];
+                   }
+
+           For NixOS, the default value for this option includes at least this argument:
+
+             [1m• [4m[22mpkgs[24m: The nixpkgs package set according to the [1mnixpkgs.pkgs [22moption.
+
+           [4mType:[24m lazy attribute set of raw value
+
+           [4mDeclared[24m [4mby:[0m
+               [1m<nixpkgs/lib/modules.nix>[0m
+
+       [1mappstream.enable[0m
+           Whether to install files to support the [1mAppStream metadata specification[22m[1].
+
+           [4mType:[24m boolean
+
+           [4mDefault:[24m true
+
+           [4mDeclared[24m [4mby:[0m
+               [1m<nixpkgs/nixos/modules/config/appstream.nix>[0m
+
+            [1m1. [22mhttps://www.freedesktop.org/software/appstream/docs/index.html
+
+       [1mboot.enableContainers[0m
+           Whether to enable support for NixOS containers.
+
+           [4mType:[24m boolean
+
+           [4mDefault:[24m config.containers != { }
+
+           [4mDeclared[24m [4mby:[0m
+               [1m<nixpkgs/nixos/modules/virtualisation/nixos-containers.nix>[0m
+
+       [1mboot.bcache.enable[0m
+           Whether to enable bcache mount support.
+
+           [4mType:[24m boolean
+
+           [4mDefault:[24m true
+
+           [4mExample:[24m false
+
+           [4mDeclared[24m [4mby:[0m
+               [1m<nixpkgs/nixos/modules/tasks/bcache.nix>[0m
+
+       [1mboot.bcachefs.package[0m
+           The bcachefs-tools package to use. This package should also provide a passthru ‘kernelModule’ attribute to build the out-of-tree kernel module.
+
+           [4mType:[24m package
+
+           [4mDefault:[24m pkgs.bcachefs-tools
+
+           [4mDeclared[24m [4mby:[0m
+               [1m<nixpkgs/nixos/modules/tasks/filesystems/bcachefs.nix>[0m
+
+       [1mboot.binfmt.addEmulatedSystemsToNixSandbox[0m
+           Whether to add the [1mboot.binfmt.emulatedSystems [22mto [1mnix.settings.extra-platforms[22m. Disable this to use remote builders for those platforms, while allowing testing binaries locally.
+
+           [4mType:[24m boolean
+
+           [4mDefault:[24m true
+
+           [4mExample:[24m false
+
+           [4mDeclared[24m [4mby:[0m
+               [1m<nixpkgs/nixos/modules/system/boot/binfmt.nix>[0m
+
+       [1mboot.binfmt.emulatedSystems[0m
+           List of systems to emulate. Will also configure Nix to support your new systems. Warning: the builder can execute all emulated systems within the same build, which introduces impurities in the case of cross compilation.
+
+           [4mType:[24m list of (one of “aarch64-linux”, “aarch64_be-linux”, “alpha-linux”, “armv6l-linux”, “armv7l-linux”, “i386-linux”, “i486-linux”, “i586-linux”, “i686-linux”, “i686-windows”, “loongarch64-linux”, “mips-linux”, “mips64-linux”,
+           “mips64-linuxabin32”, “mips64el-linux”, “mips64el-linuxabin32”, “mipsel-linux”, “powerpc-linux”, “powerpc64-linux”, “powerpc64le-linux”, “riscv32-linux”, “riscv64-linux”, “s390x-linux”, “sparc-linux”, “sparc64-linux”,
+           “wasm32-wasi”, “wasm64-wasi”, “x86_64-linux”, “x86_64-windows”)
+
+           [4mDefault:[24m [ ]
+
+           [4mExample:[0m
+
+               [
+                 "wasm32-wasi"
+                 "x86_64-windows"
+                 "aarch64-linux"
+               ]
+
+           [4mDeclared[24m [4mby:[0m
+               [1m<nixpkgs/nixos/modules/system/boot/binfmt.nix>[0m
+
+       [1mboot.binfmt.preferStaticEmulators[0m
+           Whether to use static emulators when available.
+
+           This enables the kernel to preload the emulator binaries when the binfmt registrations are added, obviating the need to make the emulator binaries available inside chroots and chroot-like sandboxes.
+
+           [4mType:[24m boolean
+
+           [4mDefault:[24m false
+
+           [4mDeclared[24m [4mby:[0m
+               [1m<nixpkgs/nixos/modules/system/boot/binfmt.nix>[0m
+
+       [1mboot.binfmt.registrations[0m
+           Extra binary formats to register with the kernel. See [1mhttps://www.kernel.org/doc/html/latest/admin-guide/binfmt-misc.html[22m[1] for more details.
+
+           [4mType:[24m attribute set of (submodule)
+
+           [4mDefault:[24m { }
+
+           [4mDeclared[24m [4mby:[0m
+               [1m<nixpkgs/nixos/modules/system/boot/binfmt.nix>[0m
+
+            [1m1. [22mhttps://www.kernel.org/doc/html/latest/admin-guide/binfmt-misc.html
+
+       [1mboot.binfmt.registrations.<name>.fixBinary[0m
+           Whether to open the interpreter file as soon as the registration is loaded, rather than waiting for a relevant file to be invoked.
+
+           See the description of the ‘F’ flag in the kernel docs for more details.
+
+           [4mType:[24m boolean
+
+           [4mDefault:[24m false
+
+           [4mDeclared[24m [4mby:[0m
+               [1m<nixpkgs/nixos/modules/system/boot/binfmt.nix>[0m
+
+       [1mboot.binfmt.registrations.<name>.interpreter[0m
+           The interpreter to invoke to run the program.
+
+           Note that the actual registration will point to /run/binfmt/${name}, so the kernel interpreter length limit doesn’t apply.
+
+           [4mType:[24m absolute path
+
+           [4mDeclared[24m [4mby:[0m
+               [1m<nixpkgs/nixos/modules/system/boot/binfmt.nix>[0m
+
+       [1mboot.binfmt.registrations.<name>.magicOrExtension[0m
+           The magic number or extension to match on.
+
+           [4mType:[24m string
+
+           [4mDeclared[24m [4mby:[0m
+               [1m<nixpkgs/nixos/modules/system/boot/binfmt.nix>[0m
+
+       [1mboot.binfmt.registrations.<name>.mask[0m
+           A mask to be ANDed with the byte sequence of the file before matching
+
+           [4mType:[24m null or string
+
+           [4mDefault:[24m null
+
+           [4mDeclared[24m [4mby:[0m
+               [1m<nixpkgs/nixos/modules/system/boot/binfmt.nix>[0m
+
+       [1mboot.binfmt.registrations.<name>.matchCredentials[0m
+           Whether to launch with the credentials and security token of the binary, not the interpreter (e.g. setuid bit).
+
+           See the description of the ‘C’ flag in the kernel docs for more details.
+
+           Implies/requires openBinary = true.
+
+           [4mType:[24m boolean
+
+           [4mDefault:[24m false
+
+           [4mDeclared[24m [4mby:[0m
+               [1m<nixpkgs/nixos/modules/system/boot/binfmt.nix>[0m
+
+       [1mboot.binfmt.registrations.<name>.offset[0m
+           The byte offset of the magic number used for recognition.
+
+           [4mType:[24m null or signed integer
+
+           [4mDefault:[24m null
+
+           [4mDeclared[24m [4mby:[0m
+               [1m<nixpkgs/nixos/modules/system/boot/binfmt.nix>[0m
+
+       [1mboot.binfmt.registrations.<name>.openBinary[0m
+           Whether to pass the binary to the interpreter as an open file descriptor, instead of a path.
+
+           [4mType:[24m boolean
+
+           [4mDefault:[24m false
+
+           [4mDeclared[24m [4mby:[0m
+               [1m<nixpkgs/nixos/modules/system/boot/binfmt.nix>[0m
+
+       [1mboot.binfmt.registrations.<name>.preserveArgvZero[0m
+           Whether to pass the original argv[0] to the interpreter.
+
+           See the description of the ‘P’ flag in the kernel docs for more details;
+
+           [4mType:[24m boolean
+
+           [4mDefault:[24m false
+
+           [4mDeclared[24m [4mby:[0m
+               [1m<nixpkgs/nixos/modules/system/boot/binfmt.nix>[0m
+
+       [1mboot.binfmt.registrations.<name>.recognitionType[0m
+           Whether to recognize executables by magic number or extension.
+
+           [4mType:[24m one of “magic”, “extension”
+
+           [4mDefault:[24m "magic"
+
+           [4mDeclared[24m [4mby:[0m
+               [1m<nixpkgs/nixos/modules/system/boot/binfmt.nix>[0m
+
+       [1mboot.binfmt.registrations.<name>.wrapInterpreterInShell[0m
+           Whether to wrap the interpreter in a shell script.
+
+           This allows a shell command to be set as the interpreter.
+
+           [4mType:[24m boolean
+
+           [4mDefault:[24m true
+
+           [4mDeclared[24m [4mby:[0m
+               [1m<nixpkgs/nixos/modules/system/boot/binfmt.nix>[0m
+
+       [1mboot.blacklistedKernelModules[0m
+           Set of names of kernel modules that should not be loaded automatically by the hardware probing code. This can either be a list of modules or an attrset. In an attrset, names that are set to ‘true’ represent modules that will be
+           blacklisted.
+
+           [4mType:[24m (attribute set of boolean) or (list of string) convertible to it
+
+           [4mDefault:[24m { }
+
+           [4mExample:[0m
+
+               [
+                 "cirrusfb"
+                 "i2c_piix4"
+               ]
+
+           [4mDeclared[24m [4mby:[0m
+               [1m<nixpkgs/nixos/modules/system/boot/modprobe.nix>[0m
+
+       [1mboot.bootspec.enableValidation[0m
+           Whether to enable the validation of bootspec documents for each build. This will introduce Go in the build-time closure as we are relying on [1mCuelang[22m[1] for schema validation. Enable this option if you want to ascertain that your
+           documents are correct .
+
+           [4mType:[24m boolean
+
+           [4mDefault:[24m false
+
+           [4mExample:[24m true
+
+           [4mDeclared[24m [4mby:[0m
+               [1m<nixpkgs/nixos/modules/system/activation/bootspec.nix>[0m
+
+            [1m1. [22mhttps://cuelang.org/
+
+       [1mboot.bootspec.package[0m
+           The bootspec package to use.
+
+           [4mType:[24m package
+
+           [4mDefault:[24m pkgs.bootspec
+
+           [4mDeclared[24m [4mby:[0m
+               [1m<nixpkgs/nixos/modules/system/activation/bootspec.nix>[0m
+
+       [1mboot.bootspec.extensions[0m
+           User-defined data that extends the bootspec document.
+
+           To reduce incompatibility and prevent names from clashing between applications, it is [1mhighly recommended [22mto use a unique namespace for your extensions.
+
+           [4mType:[24m attribute set of anything
+
+           [4mDefault:[24m { }
+
+           [4mDeclared[24m [4mby:[0m
+               [1m<nixpkgs/nixos/modules/system/activation/bootspec.nix>[0m
+
+       [1mboot.consoleLogLevel[0m
+           The kernel console ‘loglevel’. All Kernel Messages with a log level smaller than this setting will be printed to the console.
+
+           [4mType:[24m signed integer
+
+           [4mDefault:[24m 4
+
+           [4mDeclared[24m [4mby:[0m
+               [1m<nixpkgs/nixos/modules/system/boot/kernel.nix>[0m
+
+       [1mboot.crashDump.enable[0m
+           If enabled, NixOS will set up a kernel that will boot on crash, and leave the user in systemd rescue to be able to save the crashed kernel dump at /proc/vmcore. It also activates the NMI watchdog.
+
+           [4mType:[24m boolean
+
+           [4mDefault:[24m false
+
+           [4mDeclared[24m [4mby:[0m
+               [1m<nixpkgs/nixos/modules/misc/crashdump.nix>[0m
+
+       [1mboot.crashDump.kernelParams[0m
+           Parameters that will be passed to the kernel kexec-ed on crash.
+
+           [4mType:[24m list of string
+
+           [4mDefault:[0m
+
+               [
+                 "1"
+                 "boot.shell_on_fail"
+               ]
+
+           [4mDeclared[24m [4mby:[0m
+               [1m<nixpkgs/nixos/modules/misc/crashdump.nix>[0m
+
+       [1mboot.crashDump.reservedMemory[0m
+           The amount of memory reserved for the crashdump kernel. If you choose a too high value, dmesg will mention “crashkernel reservation failed”.
+
+           [4mType:[24m string
+
+           [4mDefault:[24m "128M"
+
+           [4mDeclared[24m [4mby:[0m
+               [1m<nixpkgs/nixos/modules/misc/crashdump.nix>[0m
+
+       [1mboot.devShmSize[0m
+           Size limit for the /dev/shm tmpfs. Look at [1mmount[22m(8), tmpfs size option, for the accepted syntax.
+
+           [4mType:[24m string
+
+           [4mDefault:[24m "50%"
+
+           [4mExample:[24m "256m"
+
+           [4mDeclared[24m [4mby:[0m
+               [1m<nixpkgs/nixos/modules/tasks/filesystems.nix>[0m
+
+       [1mboot.devSize[0m
+           Size limit for the /dev tmpfs. Look at [1mmount[22m(8), tmpfs size option, for the accepted syntax.
+
+           [4mType:[24m string
+
+           [4mDefault:[24m "5%"
+
+           [4mExample:[24m "32m"
+
+           [4mDeclared[24m [4mby:[0m
+               [1m<nixpkgs/nixos/modules/tasks/filesystems.nix>[0m
+
+       [1mboot.extraModprobeConfig[0m
+           Any additional configuration to be appended to the generated [4mmodprobe.conf[24m. This is typically used to specify module options. See [1mmodprobe.d[22m(5) for details.
+
+           [4mType:[24m strings concatenated with “\n”
+
+           [4mDefault:[24m ""
+
+           [4mExample:[0m
+
+               ''
+                 options parport_pc io=0x378 irq=7 dma=1
+               ''
