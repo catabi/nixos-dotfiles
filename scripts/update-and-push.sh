@@ -9,3 +9,4 @@ echo "Commit Message: "
 read -r commitMessage
 git commit -m "$commitMessage"
 git push
+popd
