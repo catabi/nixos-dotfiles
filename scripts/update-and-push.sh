@@ -6,10 +6,6 @@ git add .
 sudo nixos-rebuild switch --flake ~/.dots#nixos-btw --upgrade
 git add .
 echo "Commit Message: "
-read commitMessage
+read -r commitMessage
 git commit -m "$commitMessage"
 git push
-expect "Username for 'https://github.com': "
-send "catabi\r"
-expect eof
-popd

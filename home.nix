@@ -67,7 +67,7 @@
       p = "python3 ";
       m = "sudo udisksctl mount -b";
       um = "sudo udisksctl unmount -b";
-      testing = "echo abc";
+      upg = "~/.dots/scripts/update-and-push.sh";
     };
     profileExtra = ''
       if [ -z "$WAYLAND_DISPLAY" ] && [ "$XDG_VTNR" = 1 ]; then
