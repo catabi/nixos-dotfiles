@@ -5,8 +5,8 @@
   ...
 }: {
   imports = [
-    inputs.zen-browser.homeModules.beta
-    inputs.catppuccin.homeModules.catppuccin
+    inputs.zen-browser.homeModules.beta #beta branch of zenbrowser
+    inputs.catppuccin.homeModules.catppuccin #catppuccin themes
     #./programs/yazi.nix
   ];
 
@@ -37,7 +37,8 @@
       "video/mp4" = ["mpv.desktop"];
 
       "image/gif" = ["qimgv.desktop"];
-      "image/jpeg" = ["mpv.desktop"];
+      "image/jpeg" = ["qimgv.desktop"];
+      "image/png" = ["qimgv.desktop"];
       "application/pdf" = ["zen-beta.desktop"];
 
       "text/markdown" = ["nvim.desktop"];
@@ -55,19 +56,22 @@
       nc = "nvim ~/.dots/nixos/configuration.nix";
       nrs = "sudo nixos-rebuild switch --flake ~/.dots#nixos-btw";
       nrsu = "sudo nixos-rebuild switch --flake ~/.dots#nixos-btw --upgrade";
-      nfu = "sudo nix flake update --flake ~/.dots";
+      nfu = "sudo nix flake update --flake ~/.dots"; # nix flake update
       hypr = "nvim ~/.dots/config/hypr/hyprland.conf";
       binds = "nvim ~/.dots/config/hypr/keybinds.conf";
       wr = "nvim ~/.dots/config/hypr/windowrules.conf";
       as = "nvim ~/.dots/config/hypr/autostart.conf";
       home = "nvim ~/.dots/home.nix";
       flake = "nvim ~/.dots/flake.nix";
-      pkgs = "nvim ~/.dots/programs/common.nix";
+      pkgs = "nvim ~/.dots/programs/common.nix"; #nixpkgs
       ns = "nix-shell";
       p = "python3 ";
-      m = "sudo udisksctl mount -b";
-      um = "sudo udisksctl unmount -b";
-      upg = "~/.dots/scripts/update-and-push.sh";
+      ms = "sudo udisksctl mount -b"; #mount sudo
+      ums = "sudo udisksctl unmount -b"; #unmount sudo
+      m = "udisksctl mount -b"; #mount
+      um = "udisksctl unmount -b"; #unmount
+
+      upg = "~/.dots/scripts/update-and-push.sh"; #update push git
     };
     profileExtra = ''
       if [ -z "$WAYLAND_DISPLAY" ] && [ "$XDG_VTNR" = 1 ]; then
@@ -106,7 +110,7 @@
       color-scheme = "prefer-dark";
     };
   };
-
+  # not working, FIX
   catppuccin = {
     enable = true;
     accent = "teal";
