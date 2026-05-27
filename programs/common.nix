@@ -137,6 +137,7 @@
     remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
     dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
     localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
+    extraCompatPackages = [pkgs.proton-ge-bin];
   };
 
   # Enable networking
@@ -172,21 +173,7 @@
     pkgs.brlaser
     pkgs.brgenml1lpr
     pkgs.brgenml1cupswrapper
-  ]; # Allow unfree packages
+  ];
 
   nixpkgs.config.allowUnfree = true;
-
-  #  programs.nvf = {
-  #    enable = true;
-  #
-  #    # Your settings need to go into the settings attribute set
-  #    # most settings are documented in the appendix
-  #    settings = {
-  #      vim.viAlias = false;
-  #      vim.vimAlias = true;
-  #      vim.lsp = {
-  #        enable = true;
-  #      };
-  #    };
-  #  };
 }
