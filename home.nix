@@ -5,7 +5,7 @@
   ...
 }: {
   imports = [
-    inputs.zen-browser.homeModules.twilight
+    inputs.zen-browser.homeModules.beta
     inputs.catppuccin.homeModules.catppuccin
     #./programs/yazi.nix
   ];
