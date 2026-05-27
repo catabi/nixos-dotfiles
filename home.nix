@@ -66,10 +66,7 @@
       pkgs = "nvim ~/.dots/programs/common.nix"; #nixpkgs
       ns = "nix-shell";
       p = "python3 ";
-      ms = "sudo udisksctl mount -b"; #mount sudo
-      ums = "sudo udisksctl unmount -b"; #unmount sudo
-      m = "udisksctl mount -b"; #mount
-      um = "udisksctl unmount -b"; #unmount
+      m = "~/.dots/scripts/mount.sh";
 
       upg = "~/.dots/scripts/update-and-push.sh"; #update push git
     };
