@@ -1,5 +1,6 @@
 #!/bin/sh
-pushd ~/.dots
+set -e
+cd ~/.dots
 git add .
 sudo nix flake update --flake ~/.dots
 git add .
@@ -9,4 +10,3 @@ echo "Commit Message: "
 read -r commitMessage
 git commit -m "$commitMessage"
 git push
-popd
