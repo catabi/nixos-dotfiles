@@ -1,7 +1,7 @@
 #!/bin/sh
 set -e
 while true; do
-  read -p "Mount or Unmount? M/u: " mount
+  read -p "Mount or Unmount? m/u: " mount
   case $mount in
   [Mm]*)
     mount="mount"
@@ -14,9 +14,8 @@ while true; do
   *) echo "Answer m to Mount and u to Unmount " ;;
   esac
 done
-
 while true; do
-  read -p "Use sudo? y/N: " usesudo
+  read -p "Use sudo? y/n: " usesudo
   case $usesudo in
   [Yy]*)
     usesudo="sudo"
@@ -29,8 +28,7 @@ while true; do
   *) echo "Answer with y or n" ;;
   esac
 done
-
 lsblk
 read -p "Choose Device ( /dev/drive ): " device
 
-$usesudo udiskctl $mount -b $device
+$usesudo udisksctl $mount -b $device
