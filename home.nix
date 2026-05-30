@@ -31,7 +31,7 @@
     enable = true;
     defaultApplications = {
       "inode/directory" = [
-        "yazi.desktop"
+        "alacritty -e yazi"
         "org.kde.dolphin.desktop"
       ]; # Replace with your file manager's desktop file
       "video/mp4" = ["mpv.desktop"];
