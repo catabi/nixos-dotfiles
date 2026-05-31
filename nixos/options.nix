@@ -3,6 +3,10 @@
   pkgs,
   ...
 }: {
+  imports = [
+    #../secrets/ssh-for-nix.nix
+  ];
+
   # NVIDIA
   hardware.graphics = {
     enable = true;

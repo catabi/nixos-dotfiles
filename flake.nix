@@ -33,6 +33,11 @@
 
     catppuccin.url = "github:catppuccin/nix";
 
+    sops = {
+      url = "github:mic92/sops-nix";
+      inputs.nixos.follows = "nixpkgs";
+    };
+
     #    mcsr-nixos = {
     #      url = "https://git.uku3lig.net/uku/mcsr-nixos/archive/main.tar.gz";
     #      inputs.nixpkgs.follows = "nixpkgs";
