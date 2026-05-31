@@ -3,10 +3,6 @@
   pkgs,
   ...
 }: {
-  imports = [
-    /home/catab/Documents/temp/backup/github/github-nix.nix
-  ];
-
   # NVIDIA
   hardware.graphics = {
     enable = true;
@@ -47,6 +43,10 @@
     LC_TELEPHONE = "de_DE.UTF-8";
     LC_TIME = "de_DE.UTF-8";
   };
+
+  nix.extraOptions = ''
+    !include ${config.sops.secrets.github-nix.path}
+  '';
 
   users.users.catab = {
     isNormalUser = true;

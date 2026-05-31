@@ -119,6 +119,7 @@
     pango
     jp2a
     kdePackages.filelight
+    sops
   ];
   ## Obs with Nvidia and plugins
   programs.obs-studio = {

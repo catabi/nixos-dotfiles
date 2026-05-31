@@ -7,5 +7,6 @@
     ./fonts.nix
     ./options.nix
     ./libraries.nix
+    ../config/sops.nix
   ];
 }

@@ -43,6 +43,7 @@
 
       "text/markdown" = ["nvim.desktop"];
       "text/plain" = ["nvim.desktop"];
+      "text/yaml" = ["nvim.desktop"];
 
       #"audio.wav"
 
