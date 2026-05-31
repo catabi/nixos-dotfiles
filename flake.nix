@@ -61,7 +61,6 @@
           home-manager.backupFileExtension = "backup";
           home-manager.users.catab.imports = [
             ./home.nix
-            catppuccin.homeModules.catppuccin
           ];
 
           home-manager.extraSpecialArgs = {inherit inputs;};
