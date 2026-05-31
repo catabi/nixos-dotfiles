@@ -4,7 +4,7 @@
   ...
 }: {
   imports = [
-    #../secrets/ssh-for-nix.nix
+    /home/catab/Documents/temp/ssh-for-nix.nix
   ];
 
   # NVIDIA
