@@ -101,23 +101,23 @@
     };
   };
   */
-  #dconf.settings = {
-  #  "org/gnome/desktop/interface" = {
-  #    gtk-theme = "Catppuccin-Macchiato-Standard-Blue-Dark";
-  #    color-scheme = "prefer-dark";
-  #  };
-  #};
+  dconf.settings = {
+    "org/gnome/desktop/interface" = {
+      #    gtk-theme = "Catppuccin-Macchiato-Standard-Blue-Dark";
+      color-scheme = "prefer-dark";
+    };
+  };
   catppuccin = {
     enable = true;
-    #accent = "teal";
-    #flavor = "mocha";
-    #gtk = {
-    #  icon.enable = true;
-    #};
+    accent = "teal";
+    flavor = "mocha";
+    gtk = {
+      icon.enable = true;
+    };
 
-    #qt5ct.enable = true;
+    qt5ct.enable = true;
 
-    #rofi.enable = true;
+    rofi.enable = true;
   };
 
   home.pointerCursor = {
