@@ -109,6 +109,7 @@
   };
   catppuccin = {
     enable = true;
+    autoEnable = false;
     accent = "teal";
     flavor = "mocha";
     gtk = {
