@@ -22,6 +22,7 @@
     easyeffects
     fastfetch
     mission-center
+    btop
 
     ## Hyprland stuff
     hyprland-qtutils

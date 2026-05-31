@@ -110,7 +110,7 @@
   };
   catppuccin = {
     enable = true;
-    autoEnable = true;
+    autoEnable = false;
     accent = "teal";
     flavor = "mocha";
     gtk = {
@@ -118,10 +118,11 @@
     };
 
     qt5ct.enable = true;
-
     rofi.enable = true;
-
     cava.enable = true;
+    mpv.enable = true;
+    obs.enable = true;
+    btop.enable = true;
   };
 
   home.pointerCursor = {
