@@ -164,6 +164,27 @@
     #portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
   };
 
+  services.openssh = {
+    enable = true;
+    ports = [22];
+    settings = {
+      PasswordAuthentication = true;
+      AllowUsers = null; # Allows all users by default. Can be [ "user1" "user2" ]
+      UseDns = true;
+      X11Forwarding = false;
+      PermitRootLogin = "prohibit-password"; # "yes", "without-password", "prohibit-password", "forced-commands-only", "no"
+    };
+  };
+
+  programs.ssh = {
+    extraConfig = "
+      Host nixos-btw
+        Hostname 192.168.1.123
+        Port 22
+        User catab
+    ";
+  };
+
   # for dolphin
   services.udisks2.enable = true;
   security.polkit.enable = true;

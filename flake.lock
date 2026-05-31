@@ -249,11 +249,11 @@
         "noctalia": "noctalia",
         "noctalia-qs": "noctalia-qs",
         "nvf": "nvf",
-        "sops": "sops",
+        "sops-nix": "sops-nix",
         "zen-browser": "zen-browser"
       }
     },
-    "sops": {
+    "sops-nix": {
       "inputs": {
         "nixpkgs": "nixpkgs_4"
       },
