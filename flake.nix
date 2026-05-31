@@ -24,8 +24,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    hyprland.url = "github:hyprwm/Hyprland";
-
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -56,7 +54,6 @@
         ./nixos/configuration.nix
         nvf.nixosModules.default
         ./programs/noctalia.nix
-        catppuccin.nixosModules.catppuccin
         home-manager.nixosModules.home-manager
         {
           home-manager.useGlobalPkgs = true;
@@ -64,6 +61,7 @@
           home-manager.backupFileExtension = "backup";
           home-manager.users.catab.imports = [
             ./home.nix
+            catppuccin.homeModules.catppuccin
           ];
 
           home-manager.extraSpecialArgs = {inherit inputs;};
