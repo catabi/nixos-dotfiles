@@ -111,7 +111,6 @@
   programs = {
     btop.enable = true;
     mpv.enable = true;
-    rofi.enable = true;
     obs-studio.enable = true;
     cava.enable = true;
     #qt5ct.enable = true;
@@ -127,7 +126,6 @@
     };
 
     qt5ct.enable = true;
-    rofi.enable = true;
     cava.enable = true;
     mpv.enable = true;
     obs.enable = true;
