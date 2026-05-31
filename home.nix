@@ -119,7 +119,7 @@
 
     rofi.enable = true;
 
-    btop.enable = true;
+    cava.enable = true;
   };
 
   home.pointerCursor = {
