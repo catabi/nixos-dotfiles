@@ -108,6 +108,15 @@
       color-scheme = "prefer-dark";
     };
   };
+  programs = {
+    btop.enable = true;
+    mpv.enable = true;
+    rofi.enable = true;
+    obs-studio.enable = true;
+    cava.enable = true;
+    #qt5ct.enable = true;
+  };
+
   catppuccin = {
     enable = true;
     autoEnable = false;
