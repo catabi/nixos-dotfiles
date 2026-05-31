@@ -35,7 +35,7 @@
 
     sops-nix = {
       url = "github:mic92/sops-nix";
-      inputs.nixos.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     #    mcsr-nixos = {
