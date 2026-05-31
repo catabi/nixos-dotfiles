@@ -16,6 +16,8 @@
   sops.age.generateKey = true;
 
   sops.secrets = {
-    github-nix = {};
+    github-nix = {
+      mode = "0444";
+    };
   };
 }
