@@ -118,6 +118,8 @@
     qt5ct.enable = true;
 
     rofi.enable = true;
+
+    btop.enable = true;
   };
 
   home.pointerCursor = {
