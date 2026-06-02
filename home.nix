@@ -14,9 +14,9 @@
   home.homeDirectory = "/home/catab";
   home.stateVersion = "26.05";
 
-  home.packages = with pkgs; [
-    ##
-  ];
+  #home.packages = with pkgs; [
+  ##
+  #];
   programs.git = {
     enable = true;
 
@@ -31,7 +31,6 @@
     enable = true;
     defaultApplications = {
       "inode/directory" = [
-        "alacritty -e yazi"
         "org.kde.dolphin.desktop"
       ]; # Replace with your file manager's desktop file
       "video/mp4" = ["mpv.desktop"];
@@ -44,8 +43,13 @@
       "text/markdown" = ["nvim.desktop"];
       "text/plain" = ["nvim.desktop"];
       "text/yaml" = ["nvim.desktop"];
+      "text/html" = ["zen-beta.desktop"];
+      "x-scheme-handler/http" = ["zen-beta.desktop"];
+      "x-scheme-handler/https" = ["zen-beta.desktop"];
+      "x-scheme-handler/about" = ["zen-beta.desktop"];
+      "x-scheme-handler/unknown" = ["zen-beta.desktop"];
 
-      #"audio.wav"
+      "audio/wav" = ["audacity.desktop"];
 
       #"application/vnd.openxmlformats-officedocument.wordprocessingml.document" = [libreoffice...
     };
@@ -71,11 +75,6 @@
 
       upg = "~/.dots/scripts/update-and-push.sh"; #update push git
     };
-    profileExtra = ''
-      if [ -z "$WAYLAND_DISPLAY" ] && [ "$XDG_VTNR" = 1 ]; then
-        exec uwsm app -- start-hyprland
-      fi
-    '';
 
     initExtra = ''
         export PS1='\[\e[38;5;166m\]\u \[\e[38;5;204m\]\w\[\e[0m\] \[\e[38;5;214m\]\$\[\e[0m\] \[\e[38;5;166m\]>\[\e[0m\] '

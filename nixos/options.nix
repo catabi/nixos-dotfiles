@@ -21,7 +21,7 @@
   services.printing.enable = true;
 
   # Bootloader.
-  boot.loader.systemd-boot.enable = true;
+  boot.loader.limine.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
   # Use latest kernel.
@@ -52,15 +52,20 @@
     isNormalUser = true;
     description = "catab";
     extraGroups = ["networkmanager" "wheel" "input" "tty"];
-    packages = with pkgs; [];
+    #packages = with pkgs; [];
   };
   services.getty.autologinUser = "catab";
-
+  services.getty.autologinOnce = true;
   time.timeZone = "Europe/Berlin";
+
+  environment.loginShellInit = ''
+    [[ "$(tty)" == /dev/tty1 ]] && sway
+  '';
 
   # fix fractional scaling
   environment.sessionVariables = {
     NIXOS_OZONE_WL = "1";
+    #DEFAULT_BROWSER = "/bin/zen-beta";
   };
   # Enable Flakes
   nix.settings.experimental-features = ["nix-command" "flakes"];
