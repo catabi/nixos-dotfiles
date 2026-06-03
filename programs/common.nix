@@ -24,6 +24,10 @@
     mission-center
     btop
 
+    ## sway
+    wl-color-picker
+    grim
+    slurp
     ## Hyprland stuff
     hyprland-qtutils
     hyprpolkitagent
