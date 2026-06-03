@@ -59,7 +59,7 @@
   time.timeZone = "Europe/Berlin";
 
   environment.loginShellInit = ''
-    [[ "$(tty)" == /dev/tty1 ]] && sway
+    [[ "$(tty)" == /dev/tty1 ]] && sway --unsupported-gpu
   '';
 
   # fix fractional scaling
