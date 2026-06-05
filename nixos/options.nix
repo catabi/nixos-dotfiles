@@ -59,8 +59,12 @@
   time.timeZone = "Europe/Berlin";
 
   environment.loginShellInit = ''
-    [[ "$(tty)" == /dev/tty1 ]] && sway --unsupported-gpu
+    #[[ "$(tty)" == /dev/tty1 ]] && start-hyprland
   '';
+
+  #''
+  #[[ "$(tty)" == /dev/tty1 ]] && sway --unsupported-gpu
+  #'';
 
   # fix fractional scaling
   environment.sessionVariables = {
