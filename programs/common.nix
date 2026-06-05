@@ -23,11 +23,12 @@
     fastfetch
     mission-center
     btop
+    localsend
 
     ## sway
-    wl-color-picker
     grim
     slurp
+    wl-color-picker
     ## Hyprland stuff
     hyprland-qtutils
     hyprpolkitagent
@@ -126,6 +127,7 @@
     kdePackages.filelight
     sops
     swayfx
+    greenfoot
   ];
   ## Obs with Nvidia and plugins
   programs.obs-studio = {

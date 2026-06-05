@@ -12,7 +12,7 @@
 
   home.username = "catab";
   home.homeDirectory = "/home/catab";
-  home.stateVersion = "26.05";
+  home.stateVersion = "26.11";
 
   #home.packages = with pkgs; [
   ##
