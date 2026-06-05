@@ -128,6 +128,7 @@
     sops
     swayfx
     greenfoot
+    gsettings-desktop-schemas
   ];
   ## Obs with Nvidia and plugins
   programs.obs-studio = {
