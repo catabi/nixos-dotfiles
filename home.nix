@@ -123,11 +123,8 @@
       icon.enable = true;
     };
 
-    qt5ct.enable = true;
-    cava.enable = true;
     mpv.enable = true;
     obs.enable = true;
-    btop.enable = true;
   };
 
   home.pointerCursor = {
