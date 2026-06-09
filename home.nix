@@ -108,9 +108,7 @@
     };
   };
   programs = {
-    btop.enable = true;
     mpv.enable = true;
-    cava.enable = true;
     #qt5ct.enable = true;
   };
 
