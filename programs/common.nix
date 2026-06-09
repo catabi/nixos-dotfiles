@@ -79,6 +79,14 @@
     appimage-run
     ffmpeg
     yazi
+    yaziPlugins.drag
+    yaziPlugins.chmod
+    yaziPlugins.mount
+    yaziPlugins.bypass
+    yaziPlugins.compress
+    yaziPlugins.bookmarks
+    yaziPlugins.wl-clipboard
+    yaziPlugins.recycle-bin
     zip
     ueberzugpp
     unrar
