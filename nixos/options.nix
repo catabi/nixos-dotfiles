@@ -59,7 +59,7 @@
   time.timeZone = "Europe/Berlin";
 
   environment.loginShellInit = ''
-    #[[ "$(tty)" == /dev/tty1 ]] && start-hyprland
+    [[ "$(tty)" == /dev/tty1 ]] && start-hyprland
   '';
 
   #''

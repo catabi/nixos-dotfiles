@@ -69,6 +69,8 @@
     obsidian
     vscodium
     lmms
+    reaper
+    reaper-sws-extension
     davinci-resolve
     eloquent
 
