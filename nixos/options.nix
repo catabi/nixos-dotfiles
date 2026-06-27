@@ -53,6 +53,10 @@
     description = "catab";
     extraGroups = ["networkmanager" "wheel" "input" "tty"];
     #packages = with pkgs; [];
+
+    openssh.authorizedKeys.keys = [
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKQ8T5wZaJwpRrg77NrkqQh8PO0BbH2vX/SLr4Lih96y leriex123@gmail.com"
+    ];
   };
   services.getty.autologinUser = "catab";
   services.getty.autologinOnce = true;
@@ -69,8 +73,8 @@
   # fix fractional scaling
   environment.sessionVariables = {
     NIXOS_OZONE_WL = "1";
-    #DEFAULT_BROWSER = "/bin/zen-beta";
   };
+
   # Enable Flakes
   nix.settings.experimental-features = ["nix-command" "flakes"];
 
