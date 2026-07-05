@@ -143,6 +143,7 @@
     swayfx
     greenfoot
     gsettings-desktop-schemas
+    melonloader-installer
   ];
   ## Obs with Nvidia and plugins
   programs.obs-studio = {
