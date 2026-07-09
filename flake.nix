@@ -42,7 +42,10 @@
     #      inputs.nixpkgs.follows = "nixpkgs";
     #    };
   };
-
+  nixConfig = {
+    extra-substituters = ["https://noctalia.cachix.org"];
+    extra-trusted-public-keys = ["noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4="];
+  };
   outputs = {
     nixpkgs,
     home-manager,
@@ -55,6 +58,7 @@
   } @ inputs: {
     nixosConfigurations.nixos-btw = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
+
       specialArgs = {inherit inputs;};
       modules = [
         ./nixos/configuration.nix
