@@ -49,7 +49,7 @@
     wlr.enable = true;
     extraPortals = [
       pkgs.xdg-desktop-portal-termfilechooser
-      pkgs.xdg-desktop-portal-gtk
+      #pkgs.xdg-desktop-portal-gtk
     ];
     config = {
       common = {
