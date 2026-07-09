@@ -44,6 +44,17 @@
     LC_TIME = "de_DE.UTF-8";
   };
 
+  xdg.portal = {
+    enable = true;
+    wlr.enable = true;
+    extraPortals = [pkgs.xdg-desktop-portal-gtk];
+    config = {
+      common = {
+        default = ["wlr"];
+        "org.freedesktop.impl.portal.FileChooser" = ["gtk"];
+      };
+    };
+  };
   nix.extraOptions = ''
     !include ${config.sops.secrets.github-nix.path}
   '';
