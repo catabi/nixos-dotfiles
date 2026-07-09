@@ -32,7 +32,7 @@
     grim
     slurp
     wayfreeze
-    swaynotificationcenter
+    libnotify
     wl-color-picker
     ## Hyprland stuff
     hyprland-qtutils
