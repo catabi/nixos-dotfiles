@@ -47,11 +47,14 @@
   xdg.portal = {
     enable = true;
     wlr.enable = true;
-    extraPortals = [pkgs.xdg-desktop-portal-gtk];
+    extraPortals = [
+      pkgs.xdg-desktop-portal-termfilechooser
+      pkgs.xdg-desktop-portal-gtk
+    ];
     config = {
       common = {
         default = ["wlr"];
-        "org.freedesktop.impl.portal.FileChooser" = ["gtk"];
+        "org.freedesktop.impl.portal.FileChooser" = ["termfilechooser"];
       };
     };
   };
