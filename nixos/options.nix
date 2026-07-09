@@ -63,7 +63,7 @@
   time.timeZone = "Europe/Berlin";
 
   environment.loginShellInit = ''
-    [ "$(tty)" == /dev/tty1 ] && exec mango
+    [ "$(tty)" = /dev/tty1 ] && exec mango
   '';
 
   #''

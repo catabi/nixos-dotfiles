@@ -28,6 +28,7 @@
     mission-center
     btop
     localsend
+    grimblast
 
     ## sway
     grim
