@@ -28,11 +28,10 @@
     mission-center
     btop
     localsend
-    grimblast
 
-    ## sway
     grim
     slurp
+    wayfreeze
     wl-color-picker
     ## Hyprland stuff
     hyprland-qtutils
