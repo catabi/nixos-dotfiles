@@ -38,7 +38,7 @@
     hyprland-qtutils
     hyprpolkitagent
     hyprshot
-    xdg-desktop-portal-hyprland
+    xdg-desktop-portal-wlr
     hyprtoolkit
     wireplumber
     libgtop
