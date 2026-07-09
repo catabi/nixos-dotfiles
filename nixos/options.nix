@@ -62,9 +62,9 @@
   services.getty.autologinOnce = true;
   time.timeZone = "Europe/Berlin";
 
-  #environment.loginShellInit = ''
-  # [[ "$(tty)" == /dev/tty1 ]] && start-hyprland
-  #'';
+  environment.loginShellInit = ''
+    [ "$(tty)" == /dev/tty1 ] && exec mango
+  '';
 
   #''
   #[[ "$(tty)" == /dev/tty1 ]] && sway --unsupported-gpu

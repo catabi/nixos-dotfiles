@@ -18,10 +18,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    #noctalia-qs = {
-    #  url = "github:noctalia-dev/noctalia-qs";
-    #  inputs.nixpkgs.follows = "nixpkgs";
-    #};
+    mangowm = {
+      url = "github:mangowm/mango";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -37,8 +37,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    millennium.url = "github:SteamClientHomebrew/Millennium?dir=packages/nix";
-
     #    mcsr-nixos = {
     #      url = "https://git.uku3lig.net/uku/mcsr-nixos/archive/main.tar.gz";
     #      inputs.nixpkgs.follows = "nixpkgs";
@@ -52,6 +50,7 @@
     nvf,
     catppuccin,
     sops-nix,
+    mangowm,
     ...
   } @ inputs: {
     nixosConfigurations.nixos-btw = nixpkgs.lib.nixosSystem {
@@ -62,6 +61,7 @@
         nvf.nixosModules.default
         ./programs/noctalia.nix
         sops-nix.nixosModules.sops
+        mangowm.nixosModules.mango
         home-manager.nixosModules.home-manager
         {
           home-manager.useGlobalPkgs = true;

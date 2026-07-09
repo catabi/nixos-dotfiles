@@ -156,11 +156,9 @@
     ];
   };
 
-  nixpkgs.overlays = [inputs.millennium.overlays.default];
   # steam
   programs.steam = {
     enable = true;
-    package = pkgs.millennium-steam;
     remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
     dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
     localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
@@ -182,9 +180,10 @@
     pulse.enable = true;
     jack.enable = true;
   };
+  programs.mango.enable = true;
 
   programs.sway = {
-    enable = true;
+    enable = false;
     package = pkgs.swayfx;
     #wrapperFeatures.gtk = true;
   };
