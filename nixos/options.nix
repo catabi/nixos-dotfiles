@@ -49,13 +49,13 @@
     wlr.enable = false;
     extraPortals = [
       pkgs.xdg-desktop-portal-termfilechooser
-      pkgs.xdg-desktop-portal-gnome
+      pkgs.xdg-desktop-portal-hyprland
       pkgs.xdg-desktop-portal-gtk
     ];
     config = {
       common = {
-        default = ["gnome"];
-        "org.freedesktop.impl.portal.ScreenCast" = ["gnome"];
+        default = ["hyprland"];
+        "org.freedesktop.impl.portal.ScreenCast" = ["hyprland"];
         "org.freedesktop.impl.portal.FileChooser" = ["termfilechooser"];
       };
     };
