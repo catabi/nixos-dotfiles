@@ -49,19 +49,15 @@
     wlr.enable = false;
     extraPortals = [
       pkgs.xdg-desktop-portal-termfilechooser
-      pkgs.xdg-desktop-portal-hyprland
+      pkgs.xdg-desktop-portal-gnome
       pkgs.xdg-desktop-portal-gtk
     ];
     config = {
       common = {
-        default = ["hyprland"];
-        "org.freedesktop.impl.portal.ScreenCast" = ["hyprland"];
+        default = ["gnome"];
+        "org.freedesktop.impl.portal.ScreenCast" = ["gnome"];
         "org.freedesktop.impl.portal.FileChooser" = ["termfilechooser"];
       };
-    };
-    wlr.settings.screencast = {
-      chooser_type = "simple";
-      chooser_cmd = "${pkgs.slurp}/bin/slurp -f %o -or";
     };
   };
   nix.extraOptions = ''
