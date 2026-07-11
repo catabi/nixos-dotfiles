@@ -54,7 +54,7 @@
     ];
     config = {
       common = {
-        default = ["hyprland"];
+        default = ["hyprland" "gtk"];
         "org.freedesktop.impl.portal.ScreenCast" = ["hyprland"];
         "org.freedesktop.impl.portal.FileChooser" = ["termfilechooser"];
       };
