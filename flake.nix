@@ -1,6 +1,11 @@
 {
   description = "Basic Flake";
 
+  nixConfig = {
+    extra-substituters = ["https://noctalia.cachix.org"];
+    extra-trusted-public-keys = ["noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4="];
+  };
+
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
@@ -37,15 +42,17 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    scenefx = {
+      url = "github:wlrfx/scenefx";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     #    mcsr-nixos = {
     #      url = "https://git.uku3lig.net/uku/mcsr-nixos/archive/main.tar.gz";
     #      inputs.nixpkgs.follows = "nixpkgs";
     #    };
   };
-  nixConfig = {
-    extra-substituters = ["https://noctalia.cachix.org"];
-    extra-trusted-public-keys = ["noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4="];
-  };
+
   outputs = {
     nixpkgs,
     home-manager,
