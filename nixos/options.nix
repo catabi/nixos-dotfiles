@@ -54,15 +54,15 @@
     ];
     config = {
       common = {
-        default = ["wlr" "gtk"];
+        default = ["wlr"];
         "org.freedesktop.impl.portal.ScreenCast" = ["wlr"];
         "org.freedesktop.impl.portal.FileChooser" = ["termfilechooser"];
       };
     };
-    wlr.settings.screencast = {
-      chooser_type = "simple";
-      chooser_cmd = "${pkgs.slurp}/bin/slurp -f %o -or";
-    };
+    #wlr.settings.screencast = {
+    #  chooser_type = "simple";
+    #  chooser_cmd = "${pkgs.slurp}/bin/slurp -f %o -or";
+    #};
   };
   nix.extraOptions = ''
     !include ${config.sops.secrets.github-nix.path}
