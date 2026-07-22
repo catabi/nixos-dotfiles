@@ -145,6 +145,7 @@
     greenfoot
     gsettings-desktop-schemas
     melonloader-installer
+    linuxPackages.v4l2loopback
   ];
   ## Obs with Nvidia and plugins
   programs.obs-studio = {
