@@ -46,16 +46,26 @@
 
   xdg.portal = {
     enable = true;
-    wlr.enable = false;
+    xdgOpenUsePortal = true;
+    wlr = {
+      enable = true;
+      settings = {
+        screencast = {
+          max_fps = 60;
+          chooser_type = "dmenu";
+          chooser_cmd = "${pkgs.rofi}/bin/rofi -show window";
+        };
+      };
+    };
     extraPortals = [
       pkgs.xdg-desktop-portal-termfilechooser
-      pkgs.xdg-desktop-portal-hyprland
+      pkgs.xdg-desktop-portal-wlr
       pkgs.xdg-desktop-portal-gtk
     ];
     config = {
       common = {
-        default = ["hyprland"];
-        "org.freedesktop.impl.portal.ScreenCast" = ["hyprland"];
+        default = ["wlr"];
+        "org.freedesktop.impl.portal.ScreenCast" = ["wlr"];
         "org.freedesktop.impl.portal.FileChooser" = ["termfilechooser"];
       };
     };
