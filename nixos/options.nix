@@ -51,7 +51,7 @@
       enable = true;
       settings = {
         screencast = {
-          max_fps = 60;
+          max_fps = 180;
           chooser_type = "dmenu";
           chooser_cmd = "${pkgs.wofi}/bin/wofi --show dmenu";
         };
