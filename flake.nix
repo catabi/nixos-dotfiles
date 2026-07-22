@@ -24,8 +24,8 @@
     };
 
     mangowm = {
-      #url = "github:mangowm/mango";
-      url = "github:mangowm/mango/0.15.0";
+      url = "github:mangowm/mango";
+      #url = "github:mangowm/mango/0.15.0";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
