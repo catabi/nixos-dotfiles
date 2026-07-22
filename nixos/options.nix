@@ -53,7 +53,7 @@
         screencast = {
           max_fps = 60;
           chooser_type = "dmenu";
-          chooser_cmd = "${pkgs.rofi}/bin/rofi -show window";
+          chooser_cmd = "${pkgs.wofi}/bin/wofi --show dmenu";
         };
       };
     };
