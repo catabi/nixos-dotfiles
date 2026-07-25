@@ -66,7 +66,7 @@
       common = {
         default = ["hyprland"];
         "org.freedesktop.impl.portal.ScreenCast" = ["hyprland"];
-        "org.freedesktop.impl.portal.FileChooser" = ["termfilechooser"];
+        "org.freedesktop.impl.portal.FileChooser" = ["gtk"];
       };
     };
     #wlr.settings.screencast = {
