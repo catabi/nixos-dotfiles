@@ -62,17 +62,17 @@
       nrs = "sudo nixos-rebuild switch --flake ~/.dots#nixos-btw";
       nrsu = "sudo nixos-rebuild switch --flake ~/.dots#nixos-btw --upgrade";
       nfu = "sudo nix flake update --flake ~/.dots"; # nix flake update
-      hypr = "nvim ~/.dots/config/hypr/hyprland.conf";
-      binds = "nvim ~/.dots/config/hypr/keybinds.conf";
-      wr = "nvim ~/.dots/config/hypr/windowrules.conf";
-      as = "nvim ~/.dots/config/hypr/autostart.conf";
+      hypr = "nvim ~/.dots/config/mango/config.conf";
+      binds = "nvim ~/.dots/config/mango/keybinds.conf";
+      wr = "nvim ~/.dots/config/mango/windowrules.conf";
+      as = "nvim ~/.dots/config/mango/autostart.conf";
       home = "nvim ~/.dots/home.nix";
       flake = "nvim ~/.dots/flake.nix";
       pkgs = "nvim ~/.dots/programs/common.nix"; #nixpkgs
       ns = "nix-shell";
       p = "python3 ";
       m = "~/.dots/scripts/mount.sh";
-
+      mg = "mango -c ~/.dots/config/mango/config.conf";
       upg = "~/.dots/scripts/update-and-push.sh"; #update push git
     };
 
