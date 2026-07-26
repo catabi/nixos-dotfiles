@@ -6,7 +6,6 @@
 }: {
   imports = [
     inputs.zen-browser.homeModules.beta #beta branch of zenbrowser
-    inputs.catppuccin.homeModules.catppuccin #catppuccin themes
     #./programs/yazi.nix
   ];
 
@@ -107,29 +106,27 @@
       color-scheme = "prefer-dark";
     };
   };
-  programs = {
-    mpv.enable = true;
-    #qt5ct.enable = true;
-  };
 
-  catppuccin = {
-    enable = true;
-    autoEnable = false;
-    accent = "teal";
-    flavor = "mocha";
-    gtk = {
-      icon.enable = true;
-    };
+  #catppuccin = {
+  #enable = true;
+  #autoEnable = false;
+  #accent = "teal";
+  #flavor = "mocha";
+  #gtk = {
+  #icon.enable = true;
+  #};
 
-    mpv.enable = true;
-    obs.enable = true;
-  };
+  #mpv.enable = true;
+  #obs.enable = true;
+  #};
 
   home.pointerCursor = {
     enable = true;
     package = pkgs.catppuccin-cursors.mochaPeach;
-    name = "Catppuccin-Mocha-Peach-Cursors";
+    name = "catppuccin-mocha-peach-cursors";
     size = 24;
+    gtk.enable = true;
+    x11.enable = true;
   };
 
   programs.zen-browser.enable = true;
