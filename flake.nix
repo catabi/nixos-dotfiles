@@ -23,11 +23,11 @@
       #inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    #mangowm = {
-    #  url = "github:mangowm/mango";
-    #  #url = "github:mangowm/mango/0.15.0";
-    #  inputs.nixpkgs.follows = "nixpkgs";
-    #};
+    mangowm = {
+      url = "github:mangowm/mango";
+      #url = "github:mangowm/mango/0.15.0";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -56,7 +56,7 @@
     nvf,
     catppuccin,
     sops-nix,
-    #mangowm,
+    mangowm,
     ...
   } @ inputs: {
     nixosConfigurations.nixos-btw = nixpkgs.lib.nixosSystem {
