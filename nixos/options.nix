@@ -59,14 +59,14 @@
     };
     extraPortals = [
       pkgs.xdg-desktop-portal-termfilechooser
-      pkgs.xdg-desktop-portal-hyprland
+      pkgs.xdg-desktop-portal-wlr
       pkgs.xdg-desktop-portal-gtk
     ];
     config = {
       common = {
         default = ["hyprland"];
-        "org.freedesktop.impl.portal.ScreenCast" = ["hyprland"];
-        "org.freedesktop.impl.portal.FileChooser" = ["gtk"];
+        "org.freedesktop.impl.portal.ScreenCast" = ["wlr"];
+        "org.freedesktop.impl.portal.FileChooser" = ["termfilechooser" "gtk"];
       };
     };
     #wlr.settings.screencast = {

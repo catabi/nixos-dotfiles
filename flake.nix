@@ -23,11 +23,11 @@
       #inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    mangowm = {
-      url = "github:mangowm/mango";
-      #url = "github:mangowm/mango/0.15.0";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    #mangowm = {
+    #  url = "github:mangowm/mango";
+    #  #url = "github:mangowm/mango/0.15.0";
+    #  inputs.nixpkgs.follows = "nixpkgs";
+    #};
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -56,7 +56,7 @@
     nvf,
     catppuccin,
     sops-nix,
-    mangowm,
+    #mangowm,
     ...
   } @ inputs: {
     nixosConfigurations.nixos-btw = nixpkgs.lib.nixosSystem {
@@ -68,7 +68,7 @@
         nvf.nixosModules.default
         ./programs/noctalia.nix
         sops-nix.nixosModules.sops
-        mangowm.nixosModules.mango
+        #mangowm.nixosModules.mango
         home-manager.nixosModules.home-manager
         {
           home-manager.useGlobalPkgs = true;

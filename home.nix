@@ -86,39 +86,13 @@
   home.file.".config/hypr".source = ./config/hypr;
   home.file.".config/easyeffects".source = ./config/easyeffects;
   home.file.".config/yazi".source = ./programs/yazi;
-  /*
-  gtk = {
-    enable = true;
 
-    cursorTheme = {
-      package = pkgs.catppuccin-cursors.mochaPeach;
-      name = "Catppuccin-Mocha-Peach-Cursors";
-    };
-
-    gtk3 = {
-      extraConfig.gtk-application-prefer-dark-theme = true;
-    };
-  };
-  */
   dconf.settings = {
     "org/gnome/desktop/interface" = {
       #    gtk-theme = "Catppuccin-Macchiato-Standard-Blue-Dark";
       color-scheme = "prefer-dark";
     };
   };
-
-  #catppuccin = {
-  #enable = true;
-  #autoEnable = false;
-  #accent = "teal";
-  #flavor = "mocha";
-  #gtk = {
-  #icon.enable = true;
-  #};
-
-  #mpv.enable = true;
-  #obs.enable = true;
-  #};
 
   home.pointerCursor = {
     enable = true;
