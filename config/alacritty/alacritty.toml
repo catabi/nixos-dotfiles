@@ -1,6 +1,10 @@
 [font]
 size = 14.0
 
+[font.normal]
+family = "JetbrainsMono Nerd Fonts"
+style = "Regular"
+
 
 # Default colors
 [colors.primary]
