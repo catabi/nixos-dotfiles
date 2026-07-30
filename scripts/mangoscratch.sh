@@ -1,4 +1,5 @@
 #!/bin/sh
+set -x
 # usage: mangoscratch.sh [options] key [command]
 
 [ "$MANGO_INSTANCE_SIGNATURE" ] || {

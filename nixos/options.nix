@@ -3,7 +3,21 @@
   pkgs,
   ...
 }: {
-  # NVIDIA
+  users.users.catab = {
+    isNormalUser = true;
+    description = "catab";
+    extraGroups = ["networkmanager" "wheel" "input" "tty"];
+    #packages = with pkgs; [];
+
+    openssh.authorizedKeys.keys = [
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKQ8T5wZaJwpRrg77NrkqQh8PO0BbH2vX/SLr4Lih96y leriex123@gmail.com"
+    ];
+  };
+
+  services.getty.autologinUser = "catab";
+  services.getty.autologinOnce = true;
+  time.timeZone = "Europe/Berlin";
+
   hardware.graphics = {
     enable = true;
   };
@@ -27,9 +41,8 @@
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
-  networking.hostName = "nixos-btw"; # Define your hostname.
+  networking.hostName = "nixos-btw";
 
-  # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
 
   i18n.extraLocaleSettings = {
@@ -78,20 +91,6 @@
     !include ${config.sops.secrets.github-nix.path}
   '';
 
-  users.users.catab = {
-    isNormalUser = true;
-    description = "catab";
-    extraGroups = ["networkmanager" "wheel" "input" "tty"];
-    #packages = with pkgs; [];
-
-    openssh.authorizedKeys.keys = [
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKQ8T5wZaJwpRrg77NrkqQh8PO0BbH2vX/SLr4Lih96y leriex123@gmail.com"
-    ];
-  };
-  services.getty.autologinUser = "catab";
-  services.getty.autologinOnce = true;
-  time.timeZone = "Europe/Berlin";
-
   #  environment.loginShellInit = ''
   #  [ "$(tty)" = /dev/tty1 ] && exec mango
   #'';
@@ -105,7 +104,6 @@
     NIXOS_OZONE_WL = "1";
   };
 
-  # Enable Flakes
   nix.settings.experimental-features = ["nix-command" "flakes"];
 
   system.stateVersion = "25.11"; # No
