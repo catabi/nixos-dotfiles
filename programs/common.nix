@@ -18,7 +18,6 @@
     git
     git-crypt
     gnupg
-    htop
     jq
     libnotify
     localsend
@@ -34,11 +33,13 @@
     dart-sass
     fuzzel
     grim
+    /*
     hyprland-qtutils
     hyprpicker
     hyprpolkitagent
     hyprshot
     hyprtoolkit
+    */
     libchamplain_libsoup3
     libgtop
     planify
@@ -117,7 +118,6 @@
 
     # Development
     gh
-    greenfoot
     jdk17
     jdk21
     jdk25

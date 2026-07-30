@@ -1,9 +1,15 @@
 #!/bin/sh
-set -x
 # usage: mangoscratch.sh [options] key [command]
+# "key" names the scratchpad to show and hide. it is unique to all other windows.
+# "command" is necessary for scratchpads that don't already exist.
 
 [ "$MANGO_INSTANCE_SIGNATURE" ] || {
   echo no mango socket environment variable
+  exit 1
+}
+
+[ "$#" -lt 1 ] && {
+  echo "need to at least enter a key (see usage)"
   exit 1
 }
 
@@ -16,7 +22,7 @@ get() {
   val=$3 # number
   (
     printf '%s\0\n' "$term"
-    cat "$stateFile"
+    cat "$stateFile" 2>/dev/null
   ) | awk 'BEGIN{RS="\0\n"; FS="\0"; ORS=""}{
 		if (NR==1) term=$0; else {
 			if ($'"$key"' == term) {
@@ -113,9 +119,6 @@ done
 idKey=$1
 shift
 
-daemonPid=$(get daemonpid 1 3)
-[ "$daemonPid" ] || "$0" -daemon &
-
 untoggler() {
   [ "$1" = "$(echo "$client" | jq -r ".$2")" ] && mmsg dispatch "$3" "client,$id" >/dev/null
 }
@@ -181,7 +184,6 @@ getid() {
   unset fifo1
 
   printf '%s\0%s\0%s\0\n' "$idKey" "$id" "$cmdpid" >>"$stateFile"
-  kill -s USR1 "$daemonPid"
 }
 
 getinfo() {
@@ -191,10 +193,18 @@ getinfo() {
 }
 
 begin() {
-  [ "$#" -gt 0 ] || exit
+  [ "$#" -gt 0 ] || exit 1
+  daemonPid=$(get daemonpid 1 3)
+  [ "$daemonPid" ] || "$0" -daemon &
+
   getinfo
 
   getid "$@"
+  [ "$daemonPid" ] || {
+    daemonPid=$(get daemonpid 1 3)
+    # technically possible race condition if the daemon isn't ready for this
+    kill -s USR1 "$daemonPid"
+  }
 
   present "$id"
 }
@@ -209,11 +219,13 @@ if [ "$id" ]; then
   if [ "$isVisible" = false ]; then
     getinfo
     mmsg dispatch "tag,$tag" "client,$id" >/dev/null
+    s=$?
     # [ "$global" ] && mmsg dispatch toggleglobal "client,$id" >/dev/null
     [ "$global" ] && mmsg dispatch toggletag,0 "client,$id" >/dev/null
     [ "$keep" ] && {
       present "$id"
     }
+    exit $s
   elif [ "$isVisible" = true ]; then
     mmsg dispatch tagsilent,0 "client,$id" >/dev/null
   else

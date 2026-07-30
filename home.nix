@@ -73,6 +73,7 @@
       m = "~/.dots/scripts/mount.sh";
       mg = "mango -c ~/.dots/config/mango/config.conf";
       upg = "~/.dots/scripts/update-and-push.sh"; #update push git
+      sp = "~/.dots/scripts/mangoscratch.sh";
     };
 
     initExtra = ''
