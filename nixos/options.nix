@@ -3,12 +3,12 @@
   pkgs,
   ...
 }: {
+  # User Account
   users.users.catab = {
     isNormalUser = true;
     description = "catab";
     extraGroups = ["networkmanager" "wheel" "input" "tty"];
     #packages = with pkgs; [];
-
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKQ8T5wZaJwpRrg77NrkqQh8PO0BbH2vX/SLr4Lih96y leriex123@gmail.com"
     ];
@@ -16,35 +16,30 @@
 
   services.getty.autologinUser = "catab";
   services.getty.autologinOnce = true;
+
+  # System & Boot
+  networking.hostName = "nixos-btw";
   time.timeZone = "Europe/Berlin";
 
-  hardware.graphics = {
-    enable = true;
-  };
+  boot.loader.limine.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
 
+  # Graphics & Nvidia
+  hardware.graphics.enable = true;
   services.xserver.videoDrivers = ["nvidia"];
 
   hardware.nvidia = {
     modesetting.enable = true;
-
     open = true;
-
     nvidiaSettings = true;
   };
 
+  # Hardware Services
   services.printing.enable = true;
 
-  # Bootloader.
-  boot.loader.limine.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-
-  # Use latest kernel.
-  boot.kernelPackages = pkgs.linuxPackages_latest;
-
-  networking.hostName = "nixos-btw";
-
+  # Localization
   i18n.defaultLocale = "en_US.UTF-8";
-
   i18n.extraLocaleSettings = {
     LC_ADDRESS = "de_DE.UTF-8";
     LC_IDENTIFICATION = "de_DE.UTF-8";
@@ -57,6 +52,7 @@
     LC_TIME = "de_DE.UTF-8";
   };
 
+  # XDG Portals
   xdg.portal = {
     enable = true;
     xdgOpenUsePortal = true;
@@ -70,10 +66,14 @@
         };
       };
     };
-    extraPortals = [
-      pkgs.xdg-desktop-portal-termfilechooser
-      pkgs.xdg-desktop-portal-wlr
-      pkgs.xdg-desktop-portal-gtk
+    #wlr.settings.screencast = {
+    #  chooser_type = "simple";
+    #  chooser_cmd = "${pkgs.slurp}/bin/slurp -f %o -or";
+    #};
+    extraPortals = with pkgs; [
+      xdg-desktop-portal-termfilechooser
+      xdg-desktop-portal-wlr
+      xdg-desktop-portal-gtk
     ];
     config = {
       common = {
@@ -82,29 +82,20 @@
         "org.freedesktop.impl.portal.FileChooser" = ["termfilechooser" "gtk"];
       };
     };
-    #wlr.settings.screencast = {
-    #  chooser_type = "simple";
-    #  chooser_cmd = "${pkgs.slurp}/bin/slurp -f %o -or";
-    #};
   };
-  nix.extraOptions = ''
-    !include ${config.sops.secrets.github-nix.path}
-  '';
 
-  #  environment.loginShellInit = ''
-  #  [ "$(tty)" = /dev/tty1 ] && exec mango
-  #'';
-
-  #''
-  #[[ "$(tty)" == /dev/tty1 ]] && sway --unsupported-gpu
-  #'';
-
-  # fix fractional scaling
+  # Environment
   environment.sessionVariables = {
     NIXOS_OZONE_WL = "1";
   };
 
-  nix.settings.experimental-features = ["nix-command" "flakes"];
+  # Nix Package Manager Configuration
+  nix = {
+    settings.experimental-features = ["nix-command" "flakes"];
+    extraOptions = ''
+      !include ${config.sops.secrets.github-nix.path}
+    '';
+  };
 
-  system.stateVersion = "25.11"; # No
+  system.stateVersion = "25.11";
 }
