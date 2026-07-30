@@ -142,7 +142,6 @@
     jp2a
     kdePackages.filelight
     sops
-    swayfx
     greenfoot
     gsettings-desktop-schemas
     melonloader-installer
@@ -182,7 +181,10 @@
     pulse.enable = true;
     jack.enable = true;
   };
-  programs.mango.enable = true;
+  programs.mango = {
+    enable = true;
+    package = inputs.mangowm.packages.${pkgs.stdenv.hostPlatform.system}.default;
+  };
 
   programs.sway = {
     enable = false;
@@ -192,7 +194,6 @@
 
   programs.hyprland = {
     enable = true;
-    #withUWSM = true;
     xwayland.enable = true;
     #package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
     #portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
