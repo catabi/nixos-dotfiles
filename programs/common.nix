@@ -51,6 +51,7 @@
     alacritty
     kitty
     kdePackages.konsole
+    foot
 
     ## Browsers
     firefox
