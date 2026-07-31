@@ -80,7 +80,7 @@
     initExtra = ''
         export PS1='\[\e[38;5;166m\]\u \[\e[38;5;204m\]\w\[\e[0m\] \[\e[38;5;214m\]\$\[\e[0m\] \[\e[38;5;166m\]>\[\e[0m\] '
       # bash-prompt-generator.org
-      fastfetch
+      fastfetch -c ~/.dots/config/fastfetch/config.jsonc
     '';
   };
 
