@@ -78,6 +78,7 @@
     reaper-sws-extension
     vscodium
     yt-dlp
+    ncmpcpp
 
     # File Management & Archiving
     appimage-run
