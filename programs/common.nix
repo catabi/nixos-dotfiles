@@ -79,6 +79,7 @@
     vscodium
     yt-dlp
     ncmpcpp
+    mpd
 
     # File Management & Archiving
     appimage-run
