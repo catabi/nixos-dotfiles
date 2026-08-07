@@ -27,6 +27,7 @@
     sops
     vim
     wget
+    pulseaudio
 
     # Desktop Environment & Hyprland
     cava
