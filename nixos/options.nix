@@ -62,7 +62,7 @@
         screencast = {
           max_fps = 180;
           chooser_type = "dmenu";
-          #chooser_cmd = "${pkgs.wofi}/bin/wofi --show dmenu";
+          chooser_cmd = "${pkgs.wofi}/bin/wofi --show dmenu";
         };
       };
     };
@@ -77,7 +77,7 @@
     ];
     config = {
       common = {
-        default = ["hyprland"];
+        default = ["wlr"];
         "org.freedesktop.impl.portal.ScreenCast" = ["wlr"];
         "org.freedesktop.impl.portal.FileChooser" = ["termfilechooser" "gtk"];
       };
