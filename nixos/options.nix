@@ -1,6 +1,7 @@
 {
   config,
   pkgs,
+  lib,
   ...
 }: {
   users.users.catab = {
@@ -66,21 +67,15 @@
         screencast = {
           #max_fps = 180;
           chooser_type = "dmenu";
-          chooser_cmd = "${pkgs.rofi}/bin/rofi -dmenu";
+          chooser_cmd = "${lib.getExe pkgs.noctalia} dmenu";
         };
       };
     };
     extraPortals = [
       pkgs.xdg-desktop-portal-termfilechooser
-      pkgs.xdg-desktop-portal-wlr
       pkgs.xdg-desktop-portal-gtk
     ];
     config = {
-      mango = {
-        default = ["gtk"];
-        "org.freedesktop.impl.portal.ScreenCast" = ["wlr"];
-        "org.freedesktop.impl.portal.Screenshot" = ["wlr"];
-      };
       common = {
         default = ["gtk"];
         "org.freedesktop.impl.portal.ScreenCast" = ["wlr"];
