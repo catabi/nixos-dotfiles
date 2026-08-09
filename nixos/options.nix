@@ -2,6 +2,7 @@
   config,
   pkgs,
   lib,
+  inputs,
   ...
 }: {
   users.users.catab = {
@@ -67,7 +68,7 @@
         screencast = {
           #max_fps = 180;
           chooser_type = "dmenu";
-          chooser_cmd = "${lib.getExe pkgs.noctalia} dmenu";
+          chooser_cmd = "${lib.getExe inputs.noctalia.packages.${pkgs.system}.default} dmenu";
         };
       };
     };
