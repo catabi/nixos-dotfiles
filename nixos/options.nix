@@ -55,14 +55,14 @@
   # XDG Portals
   xdg.portal = {
     enable = true;
-    xdgOpenUsePortal = true;
+    #xdgOpenUsePortal = true;
     wlr = {
       enable = true;
       settings = {
         screencast = {
-          max_fps = 180;
+          #max_fps = 180;
           chooser_type = "dmenu";
-          chooser_cmd = "${pkgs.wofi}/bin/wofi --show dmenu";
+          chooser_cmd = "${pkgs.rofi}/bin/rofi -dmenu";
         };
       };
     };
@@ -72,15 +72,16 @@
     #};
     extraPortals = with pkgs; [
       xdg-desktop-portal-termfilechooser
-      xdg-desktop-portal-wlr
-      xdg-desktop-portal-hyprland
+      #xdg-desktop-portal-wlr
+      #xdg-desktop-portal-hyprland
       xdg-desktop-portal-gtk
     ];
     config = {
       common = {
-        default = ["hyprland"];
-        "org.freedesktop.impl.portal.ScreenCast" = ["hyprland"];
-        "org.freedesktop.impl.portal.FileChooser" = ["termfilechooser" "gtk"];
+        default = ["gtk"];
+        "org.freedesktop.impl.portal.ScreenCast" = ["wlr"];
+        "org.freedesktop.impl.portal.Screenshot" = ["wlr"];
+        "org.freedesktop.impl.portal.FileChooser" = ["termfilechooser"];
       };
     };
   };
