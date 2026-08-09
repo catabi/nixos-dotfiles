@@ -59,7 +59,7 @@
 
   xdg.portal = {
     enable = true;
-    xdgOpenUsePortal = true;
+    #xdgOpenUsePortal = true;
     wlr = {
       enable = true;
       settings = {
