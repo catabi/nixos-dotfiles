@@ -183,7 +183,7 @@
   };
   programs.mango = {
     enable = true;
-    package = inputs.mangowm.packages.${pkgs.stdenv.hostPlatform.system}.default;
+    package = pkgs.mango; #inputs.mangowm.packages.${pkgs.stdenv.hostPlatform.system}.default;
   };
 
   programs.sway = {
