@@ -5,172 +5,175 @@
 }: {
   imports = [
     ./nvf-configuration.nix
+    #./yazi/yazi.nix
   ];
 
-  # System packages
+  # List packages installed in system profile. To search, run:
+  # $ nix search wget
   environment.systemPackages = with pkgs; [
-    # System Essentials & Utilities
-    btop
+    ## linux essentials
+    vim
+    wget
+    htop
+    linuxHeaders
+    git
+
+    ## Other essential stuff
+    rofi
+    pwvucontrol
+    pulseaudio
     cliphist
     easyeffects
     fastfetch
-    file
-    git
-    git-crypt
-    gnupg
-    jq
-    libnotify
-    localsend
     mission-center
-    pwvucontrol
-    rofi
-    sops
-    vim
-    wget
-    pulseaudio
+    btop
+    localsend
 
-    # Desktop Environment & Hyprland
-    cava
-    dart-sass
-    fuzzel
     grim
-    /*
-    hyprland-qtutils
-    hyprpicker
-    hyprpolkitagent
-    hyprshot
-    hyprtoolkit
-    */
-    libchamplain_libsoup3
-    libgtop
-    planify
     slurp
     wayfreeze
-    wireplumber
-    wl-clipboard
+    libnotify
     wl-color-picker
+    ## Hyprland stuff
+    hyprland-qtutils
+    hyprpolkitagent
+    hyprshot
+    xdg-desktop-portal-wlr
+    hyprtoolkit
+    wireplumber
+    libgtop
+    wl-clipboard
+    gvfs
+    libchamplain_libsoup3
+    dart-sass
 
-    # Terminals
+    ## terminals
     alacritty
-    foot
-    kdePackages.konsole
     kitty
+    kdePackages.konsole
+    foot
 
-    # Browsers
+    ## Browsers
     firefox
-    google-chrome
     vivaldi
+    google-chrome
 
-    # Media & Content Creation
-    audacity
-    davinci-resolve
-    eloquent
-    gimp
-    godot
-    kdePackages.kdenlive
-    libreoffice
-    lmms
-    mpv
-    obsidian
-    pear-desktop
+    ## Media Players/Editors
     qimgv
+    gimp
+    mpv
+    libreoffice
+    audacity
     qpwgraph
+    kdePackages.kdenlive
+    pear-desktop
+    godot
+    obsidian
+    vscodium
+    lmms
     reaper
     reaper-sws-extension
-    vscodium
-    yt-dlp
-    ncmpcpp
-    mpd
+    davinci-resolve
+    eloquent
 
-    # File Management & Archiving
+    ## File Stuff
+    kdePackages.dolphin
+    kdePackages.kio-admin
+    kdePackages.kio
+    kdePackages.kio-fuse
+    kdePackages.kio-extras
+    polkit
+    file
     appimage-run
     ffmpeg
-    gnumake
-    kdePackages.dolphin
-    kdePackages.filelight
-    kdePackages.kio
-    kdePackages.kio-admin
-    kdePackages.kio-extras
-    kdePackages.kio-fuse
-    meson
+    yazi
+    yaziPlugins.drag
+    yaziPlugins.chmod
+    yaziPlugins.mount
+    yaziPlugins.bypass
+    yaziPlugins.compress
+    yaziPlugins.bookmarks
+    yaziPlugins.wl-clipboard
+    yaziPlugins.recycle-bin
+    zip
     ueberzugpp
     unrar
     unzip
-    yazi
-    zip
+    meson
+    gnumake
 
-    # Yazi Plugins
-    yaziPlugins.bookmarks
-    yaziPlugins.bypass
-    yaziPlugins.chmod
-    yaziPlugins.compress
-    yaziPlugins.drag
-    yaziPlugins.mount
-    yaziPlugins.recycle-bin
-    yaziPlugins.wl-clipboard
-
-    # Gaming & Social
-    cinny-desktop
+    ## Connectivity/Games/etc.
     discord
-    olympus
-    prismlauncher
-    r2modman
     steam
+    r2modman
     vesktop
+    #### Minecraft
+    prismlauncher
     waywall
+    #### Celeste
+    olympus
 
-    # Development
-    gh
+    ## Programming/Java/Python Stuff
     jdk17
     jdk21
     jdk25
-    nixd
-    nixpkgs-fmt
     openjdk
     python3
+    jq
 
-    # Misc Dependencies
-    gnome-calculator
-    gsettings-desktop-schemas
-    jp2a
+    ## Misc
+    xdg-desktop-portal-gtk
     kdePackages.qtsvg
-    libsForQt5.qt5ct
-    melonloader-installer
-    pango
     wineWow64Packages.waylandFull
+    nixd
+    nixpkgs-fmt
+    planify
+    cava
+    gh
+    gnupg
+    git-crypt
+    fuzzel
+    gnome-calculator
+    hyprpicker
+    libsForQt5.qt5ct
+    cinny-desktop
+    yt-dlp
+    pango
+    jp2a
+    kdePackages.filelight
+    sops
+    greenfoot
+    gsettings-desktop-schemas
+    melonloader-installer
   ];
-
-  # OBS Studio with CUDA & plugins
+  ## Obs with Nvidia and plugins
   programs.obs-studio = {
     enable = true;
     package = pkgs.obs-studio.override {cudaSupport = true;};
-    plugins = with pkgs.obs-studio-plugins; [
-      obs-vkcapture
-      input-overlay
-      obs-pipewire-audio-capture
+    plugins = with pkgs; [
+      obs-studio-plugins.obs-vkcapture
+      obs-studio-plugins.input-overlay
+      obs-studio-plugins.obs-pipewire-audio-capture
     ];
   };
 
-  # Steam
+  # steam
   programs.steam = {
     enable = true;
-    remotePlay.openFirewall = true;
-    dedicatedServer.openFirewall = true;
-    localNetworkGameTransfers.openFirewall = true;
+    remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
+    dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
+    localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
+    #extraCompatPackages = [pkgs.proton-ge-bin];
   };
 
-  # Window Managers
-  programs.mango = {
-    enable = true;
-    package = inputs.mangowm.packages.${pkgs.stdenv.hostPlatform.system}.default;
-  };
+  # Enable networking
+  networking.networkmanager.enable = true;
 
-  programs.hyprland = {
-    enable = true;
-    xwayland.enable = true;
-  };
+  # Enable Bluetooth
+  hardware.bluetooth.enable = true;
+  services.blueman.enable = true;
 
-  # Audio (PipeWire)
+  # Sound
   services.pipewire = {
     enable = true;
     alsa.enable = true;
@@ -178,42 +181,54 @@
     pulse.enable = true;
     jack.enable = true;
   };
+  programs.mango = {
+    enable = true;
+    package = inputs.mangowm.packages.${pkgs.stdenv.hostPlatform.system}.default;
+  };
 
-  # Network & Bluetooth
-  networking.networkmanager.enable = true;
-  hardware.bluetooth.enable = true;
-  services.blueman.enable = true;
+  programs.sway = {
+    enable = false;
+    package = pkgs.swayfx;
+    #wrapperFeatures.gtk = true;
+  };
 
-  # OpenSSH Service & SSH Client Config
+  programs.hyprland = {
+    enable = true;
+    xwayland.enable = true;
+    #package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+    #portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
+  };
+
   services.openssh = {
     enable = true;
     ports = [22];
     settings = {
       PasswordAuthentication = false;
-      AllowUsers = null;
+      AllowUsers = null; # Allows all users by default. Can be [ "user1" "user2" ]
       UseDns = true;
       X11Forwarding = false;
-      PermitRootLogin = "no";
+      PermitRootLogin = "no"; # "yes", "without-password", "prohibit-password", "forced-commands-only", "no"
     };
   };
 
-  programs.ssh.extraConfig = ''
-    Host nixos-btw
-      Hostname 192.168.1.123
-      Port 22
-      User catab
-  '';
+  programs.ssh = {
+    extraConfig = "
+      Host nixos-btw
+        Hostname 192.168.1.123
+        Port 22
+        User catab
+    ";
+  };
 
-  # Integration Services
+  # for dolphin
   services.udisks2.enable = true;
   security.polkit.enable = true;
   services.gvfs.enable = true;
 
-  # Printer Drivers
-  services.printing.drivers = with pkgs; [
-    brlaser
-    brgenml1lpr
-    brgenml1cupswrapper
+  services.printing.drivers = [
+    pkgs.brlaser
+    pkgs.brgenml1lpr
+    pkgs.brgenml1cupswrapper
   ];
 
   nixpkgs.config.allowUnfree = true;
