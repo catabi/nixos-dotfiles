@@ -9,8 +9,7 @@
       _7zz = pkgs._7zz-rar;
     })
   ];
-  /*
-  imports = [./keymap.nix];
+  #imports = [./keymap.nix];
 
   programs.yazi = {
     enable = true;
@@ -22,5 +21,4 @@
       #theme = lib.importTOML ./theme.toml;
     };
   };
-  */
 }
