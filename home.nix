@@ -75,6 +75,7 @@
       upg = "~/.dots/scripts/update-and-push.sh"; #update push git
       sp = "~/.dots/scripts/mangoscratch.sh";
       ff = "fastfetch -c ~/.dots/config/fastfetch/config.jsonc";
+      kitty = "kitty -c ~/.dots/config/kitty/kitty.conf";
     };
 
     initExtra = ''
