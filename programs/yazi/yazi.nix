@@ -5,9 +5,10 @@
 }: {
   programs.yazi = {
     enable = true;
-    plugins = {
-      inherit (pkgs.yaziPlugins) chmod mount bypass compress bookmarks wl-clipboard recycle-bin;
+    plugins = with pkgs.yaziPlugins; {
+      chmod = chmod;
     };
+
     settings = {
       yazi = lib.importTOML ./yazi.toml;
       #theme = lib.importTOML ./theme.toml;

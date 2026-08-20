@@ -87,7 +87,7 @@
   home.file.".config/alacritty".source = ./config/alacritty;
   #home.file.".config/hypr".source = ./config/hypr;
   home.file.".config/easyeffects".source = ./config/easyeffects;
-  home.file.".config/yazi".source = ./programs/yazi;
+  #home.file.".config/yazi".source = ./programs/yazi;
 
   dconf.settings = {
     "org/gnome/desktop/interface" = {
