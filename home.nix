@@ -86,7 +86,7 @@
   };
 
   home.file.".config/alacritty".source = ./config/alacritty;
-  #home.file.".config/hypr".source = ./config/hypr;
+  home.file.".config/fastfetch".source = ./config/fastfetch;
   home.file.".config/easyeffects".source = ./config/easyeffects;
   home.file.".config/yazi".source = ./programs/yazi;
 
