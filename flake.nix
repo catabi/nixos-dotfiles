@@ -42,8 +42,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    yazi.url = "github:sxyazi/yazi";
-
     #    mcsr-nixos = {
     #      url = "https://git.uku3lig.net/uku/mcsr-nixos/archive/main.tar.gz";
     #      inputs.nixpkgs.follows = "nixpkgs";
@@ -59,7 +57,6 @@
     sops-nix,
     mangowm,
     msnap,
-    yazi,
     ...
   } @ inputs: {
     nixosConfigurations.nixos-btw = nixpkgs.lib.nixosSystem {
@@ -67,13 +64,6 @@
 
       specialArgs = {inherit inputs;};
       modules = [
-        ({pkgs, ...}: {
-          environment.systemPackages = [
-            (yazi.packages.${pkgs.system}.default.override {
-              _7zz = pkgs._7zz-rar; # Support for RAR extraction
-            })
-          ];
-        })
         {nixpkgs.overlays = [msnap.overlays.default];}
         ./nixos/configuration.nix
         nvf.nixosModules.default

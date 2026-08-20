@@ -5,7 +5,7 @@
 }: {
   imports = [
     ./nvf-configuration.nix
-    #./yazi/yazi.nix
+    ./yazi/yazi.nix
   ];
 
   # List packages installed in system profile. To search, run:
