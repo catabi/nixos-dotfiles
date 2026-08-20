@@ -131,6 +131,26 @@
         "type": "github"
       }
     },
+    "msnap": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1784479525,
+        "narHash": "sha256-Iy15f5dPO3WC/W1avDNYQdFERSXHxwH7ZrpUcIFeLhw=",
+        "owner": "xtheeq",
+        "repo": "msnap",
+        "rev": "c2df4e03ad52854f652da18fef0d99f8988588ca",
+        "type": "github"
+      },
+      "original": {
+        "owner": "xtheeq",
+        "repo": "msnap",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1786534138,
@@ -245,6 +265,7 @@
         "catppuccin": "catppuccin",
         "home-manager": "home-manager",
         "mangowm": "mangowm",
+        "msnap": "msnap",
         "nixpkgs": "nixpkgs_2",
         "noctalia": "noctalia",
         "nvf": "nvf",

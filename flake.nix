@@ -36,6 +36,10 @@
       url = "github:mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    msnap = {
+      url = "github:xtheeq/msnap";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     #    mcsr-nixos = {
     #      url = "https://git.uku3lig.net/uku/mcsr-nixos/archive/main.tar.gz";
@@ -51,6 +55,7 @@
     catppuccin,
     sops-nix,
     mangowm,
+    msnap,
     ...
   } @ inputs: {
     nixosConfigurations.nixos-btw = nixpkgs.lib.nixosSystem {
@@ -58,6 +63,7 @@
 
       specialArgs = {inherit inputs;};
       modules = [
+        {nixpkgs.overlays = [msnap.overlays.default];}
         ./nixos/configuration.nix
         nvf.nixosModules.default
         ./programs/noctalia.nix

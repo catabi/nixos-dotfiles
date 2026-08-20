@@ -75,6 +75,7 @@
     reaper-sws-extension
     davinci-resolve
     eloquent
+    msnap
 
     ## File Stuff
     kdePackages.dolphin
