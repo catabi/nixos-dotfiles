@@ -29,22 +29,13 @@
     btop
     localsend
 
-    grim
-    slurp
-    wayfreeze
     libnotify
     wl-color-picker
-    ## Hyprland stuff
-    hyprland-qtutils
-    hyprpolkitagent
-    hyprshot
-    xdg-desktop-portal-wlr
-    hyprtoolkit
+    #xdg-desktop-portal-wlr
     wireplumber
     libgtop
     wl-clipboard
     gvfs
-    libchamplain_libsoup3
     dart-sass
 
     ## terminals
@@ -70,12 +61,26 @@
     godot
     obsidian
     vscodium
+
+    /*
+    # DAWS
     lmms
     reaper
     reaper-sws-extension
-    davinci-resolve
+    */
+    #davinci-resolve
+
     eloquent
+
+    ## Screenshots and recording
     msnap
+    # -> dependencies of msnap
+    satty
+    gpu-screen-recorder
+    quickshell
+    wayfreeze
+    grim
+    slurp
 
     ## File Stuff
     kdePackages.dolphin
@@ -87,8 +92,16 @@
     file
     appimage-run
     ffmpeg
+    zip
+    unrar
+    unzip
+    meson
+    gnumake
+
+    ## Yazi
     yazi
-    yaziPlugins.drag
+    /*
+      yaziPlugins.drag
     yaziPlugins.chmod
     yaziPlugins.mount
     yaziPlugins.bypass
@@ -96,18 +109,12 @@
     yaziPlugins.bookmarks
     yaziPlugins.wl-clipboard
     yaziPlugins.recycle-bin
-    zip
-    ueberzugpp
-    unrar
-    unzip
-    meson
-    gnumake
-
+    */
     ## Connectivity/Games/etc.
     discord
+    vesktop
     steam
     r2modman
-    vesktop
     #### Minecraft
     prismlauncher
     waywall
@@ -123,7 +130,7 @@
     jq
 
     ## Misc
-    xdg-desktop-portal-gtk
+    #xdg-desktop-portal-gtk
     kdePackages.qtsvg
     wineWow64Packages.waylandFull
     nixd
@@ -135,15 +142,13 @@
     git-crypt
     fuzzel
     gnome-calculator
-    hyprpicker
     libsForQt5.qt5ct
-    cinny-desktop
+    #cinny-desktop
     yt-dlp
-    pango
     jp2a
     kdePackages.filelight
     sops
-    greenfoot
+    #greenfoot
     gsettings-desktop-schemas
     melonloader-installer
   ];
