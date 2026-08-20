@@ -5,8 +5,8 @@
 }: {
   programs.yazi = {
     enable = true;
-    plugins = with pkgs.yaziPlugins; {
-      chmod = chmod;
+    plugins = {
+      chmod.enable = true;
     };
 
     settings = {
