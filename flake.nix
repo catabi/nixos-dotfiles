@@ -42,8 +42,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    yazi.url = "github:sxyazi/yazi";
-
     #    mcsr-nixos = {
     #      url = "https://git.uku3lig.net/uku/mcsr-nixos/archive/main.tar.gz";
     #      inputs.nixpkgs.follows = "nixpkgs";
@@ -72,7 +70,6 @@
         ./programs/noctalia.nix
         sops-nix.nixosModules.sops
         mangowm.nixosModules.mango
-        ./programs/yazi/yazi.nix
         home-manager.nixosModules.home-manager
         {
           home-manager.useGlobalPkgs = true;

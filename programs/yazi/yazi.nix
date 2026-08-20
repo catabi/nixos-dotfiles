@@ -1,16 +1,8 @@
 {
   lib,
   pkgs,
-  inputs,
   ...
 }: {
-  environment.systemPackages = [
-    (inputs.yazi.packages.${pkgs.system}.default.override {
-      _7zz = pkgs._7zz-rar;
-    })
-  ];
-  #imports = [./keymap.nix];
-
   programs.yazi = {
     enable = true;
     plugins = {
