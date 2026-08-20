@@ -101,7 +101,7 @@
     ## Yazi
     yazi
     /*
-      yaziPlugins.drag
+    yaziPlugins.drag
     yaziPlugins.chmod
     yaziPlugins.mount
     yaziPlugins.bypass

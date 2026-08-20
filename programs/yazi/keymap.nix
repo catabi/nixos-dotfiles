@@ -1,0 +1,11 @@
+{...}: {
+  keymap = {
+    manager.prepend_keymap = [
+      {
+        on = ["M"];
+        run = "plugin mount";
+        desc = "Mount/unmount drives";
+      }
+    ];
+  };
+}
