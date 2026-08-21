@@ -128,6 +128,7 @@
     openjdk
     python3
     jq
+    nodejs
 
     ## Misc
     #xdg-desktop-portal-gtk
