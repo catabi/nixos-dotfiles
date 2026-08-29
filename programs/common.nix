@@ -61,6 +61,7 @@
     godot
     obsidian
     vscodium
+    amberol
 
     /*
     # DAWS
