@@ -62,6 +62,7 @@
     obsidian
     vscodium
     amberol
+    picard
 
     /*
     # DAWS
