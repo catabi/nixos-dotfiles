@@ -99,6 +99,7 @@
     unzip
     meson
     gnumake
+    easytag
 
     ## Yazi
     yazi
