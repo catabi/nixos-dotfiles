@@ -68,7 +68,7 @@
         screencast = {
           #max_fps = 180;
           chooser_type = "dmenu";
-          chooser_cmd = "${lib.getExe inputs.noctalia.packages.${pkgs.system}.default} dmenu";
+          chooser_cmd = "${lib.getExe inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default} dmenu";
         };
       };
     };
