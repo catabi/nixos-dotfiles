@@ -155,6 +155,7 @@
     #greenfoot
     gsettings-desktop-schemas
     melonloader-installer
+    dijo
   ];
   ## Obs with Nvidia and plugins
   programs.obs-studio = {
