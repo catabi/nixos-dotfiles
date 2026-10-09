@@ -227,8 +227,9 @@
 
   services.terraria = {
     enable = true;
-    port = 7777;
+    port = 25565;
     maxPlayers = 8;
+    openFirewall = true;
     #worldPath = "~/.local/share/Terraria/Worlds/YOLO-Defecation.wld";
     password = "mreow";
   };
