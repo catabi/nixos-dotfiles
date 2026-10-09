@@ -229,8 +229,12 @@
     enable = true;
     port = 7777;
     maxPlayers = 8;
-    #worldPath = ""
+    #worldPath = "~/.local/share/Terraria/Worlds/YOLO-Defecation.wld";
     password = "mreow";
+  };
+  systemd.services.terraria.serviceConfig = {
+    User = "terraria";
+    StateDirectory = "terraria";
   };
 
   programs.ssh = {

@@ -8,7 +8,7 @@
   users.users.catab = {
     isNormalUser = true;
     description = "catab";
-    extraGroups = ["networkmanager" "wheel" "input" "tty"];
+    extraGroups = ["networkmanager" "wheel" "input" "tty" "terraria"];
     #packages = with pkgs; [];
 
     openssh.authorizedKeys.keys = [
