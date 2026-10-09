@@ -195,7 +195,7 @@
   };
   programs.mango = {
     enable = true;
-    package = pkgs.mango; #inputs.mangowm.packages.${pkgs.stdenv.hostPlatform.system}.default;
+    package = inputs.mangowm.packages.${pkgs.stdenv.hostPlatform.system}.default;
   };
 
   programs.sway = {
@@ -223,6 +223,14 @@
       X11Forwarding = false;
       PermitRootLogin = "no"; # "yes", "without-password", "prohibit-password", "forced-commands-only", "no"
     };
+  };
+
+  services.terraria = {
+    enable = true;
+    port = 7777;
+    maxPlayers = 8;
+    #worldPath = ""
+    password = "mreow";
   };
 
   programs.ssh = {
