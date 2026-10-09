@@ -76,6 +76,7 @@
       sp = "~/.dots/scripts/mangoscratch.sh";
       ff = "fastfetch -c ~/.dots/config/fastfetch/config.jsonc";
       kitty = "kitty -c ~/.dots/config/kitty/kitty.conf";
+      terrServ = "sudo -u terraria tmux -S /var/lib/terraria/terraria.sock attach";
     };
 
     initExtra = ''
