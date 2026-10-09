@@ -43,6 +43,7 @@
     kitty
     kdePackages.konsole
     foot
+    tmux
 
     ## Browsers
     firefox
