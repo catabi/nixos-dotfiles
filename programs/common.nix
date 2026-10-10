@@ -231,7 +231,7 @@
     maxPlayers = 8;
     openFirewall = true;
     #worldPath = "~/.local/share/Terraria/Worlds/YOLO-Defecation.wld";
-    #autocreate = 3;
+    autoCreatedWorldSize = "large";
   };
 
   systemd.services.terraria = {
