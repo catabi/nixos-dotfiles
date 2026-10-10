@@ -227,6 +227,7 @@
 
   services.terraria = {
     enable = true;
+    package = pkgs.tshock;
     port = 25565;
     maxPlayers = 8;
     openFirewall = true;
