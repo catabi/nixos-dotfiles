@@ -231,11 +231,15 @@
     maxPlayers = 8;
     openFirewall = true;
     #worldPath = "~/.local/share/Terraria/Worlds/YOLO-Defecation.wld";
-    password = "mreow";
+    #autocreate = 3;
   };
-  systemd.services.terraria.serviceConfig = {
-    User = "terraria";
-    StateDirectory = "terraria";
+
+  systemd.services.terraria = {
+    serviceConfig = {
+      User = "terraria";
+      StateDirectory = "terraria";
+      CPUAffinity = "0-11";
+    };
   };
 
   programs.ssh = {
