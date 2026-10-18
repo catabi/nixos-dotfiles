@@ -38,6 +38,7 @@
 
   # Bootloader.
   boot.loader.limine.enable = true;
+  boot.loader.limine.maxGenerations = 2;
   boot.loader.efi.canTouchEfiVariables = true;
 
   # Use latest kernel.
@@ -92,6 +93,11 @@
   nix.extraOptions = ''
     !include ${config.sops.secrets.github-nix.path}
   '';
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 30d";
+  };
 
   #  environment.loginShellInit = ''
   #  [ "$(tty)" = /dev/tty1 ] && exec mango
