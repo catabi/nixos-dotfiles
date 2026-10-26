@@ -55,14 +55,14 @@
     gimp
     mpv
     libreoffice
-    audacity
+    ####audacity
     qpwgraph
     kdePackages.kdenlive
     pear-desktop
     godot
     obsidian
     vscodium
-    amberol
+    ####amberol
     picard
 
     /*

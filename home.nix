@@ -108,5 +108,8 @@
   };
 
   programs.zen-browser.enable = true;
+  programs.zen-browser.profiles.default = {
+    sine.enable = true;
+  };
   programs.home-manager.enable = true;
 }
