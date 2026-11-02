@@ -64,6 +64,7 @@
     vscodium
     ###amberol
     picard
+    aseprite
 
     /*
     # DAWS
