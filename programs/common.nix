@@ -62,7 +62,7 @@
     godot
     obsidian
     vscodium
-    ###amberol
+    amberol
     picard
     aseprite
 
