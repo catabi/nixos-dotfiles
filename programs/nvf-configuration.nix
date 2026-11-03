@@ -51,6 +51,7 @@
           nix.enable = true;
           python.enable = true;
           bash.enable = true;
+          sql.enable = true;
         };
         options = {
           tabstop = 2;
