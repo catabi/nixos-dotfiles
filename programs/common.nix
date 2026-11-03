@@ -55,7 +55,7 @@
     gimp
     mpv
     libreoffice
-    ###audacity
+    audacity
     qpwgraph
     kdePackages.kdenlive
     pear-desktop
