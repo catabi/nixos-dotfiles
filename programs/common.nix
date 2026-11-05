@@ -158,6 +158,8 @@
     gsettings-desktop-schemas
     melonloader-installer
     dijo
+    dbeaver-bin
+    pgadmin4
   ];
   ## Obs with Nvidia and plugins
   programs.obs-studio = {
