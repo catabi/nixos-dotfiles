@@ -134,9 +134,9 @@
     melonloader-installer
     #dijo #todo list tui
     vimPlugins.vimtex
+    texlivePackages.latexmk
     texliveFull
     miktex
-    latexrun
   ];
   ## Obs with Nvidia and plugins
   programs.obs-studio = {
