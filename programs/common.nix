@@ -136,6 +136,7 @@
     vimPlugins.vimtex
     texliveFull
     miktex
+    latexrun
   ];
   ## Obs with Nvidia and plugins
   programs.obs-studio = {
