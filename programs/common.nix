@@ -139,6 +139,7 @@
     miktex
     texlivePackages.pdftex
     texlivePackages.lastpage
+    texlab
   ];
   ## Obs with Nvidia and plugins
   programs.obs-studio = {
