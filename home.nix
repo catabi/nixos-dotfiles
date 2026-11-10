@@ -57,7 +57,7 @@
   programs.bash = {
     enable = true;
     shellAliases = {
-      nc = "nvim ~/.dots/nixos/configuration.nix";
+      nc = "nvim ~/.dots/.";
       nrs = "sudo nixos-rebuild switch --flake ~/.dots#nixos-btw";
       nrsu = "sudo nixos-rebuild switch --flake ~/.dots#nixos-btw --upgrade";
       nfu = "sudo nix flake update --flake ~/.dots"; # nix flake update
