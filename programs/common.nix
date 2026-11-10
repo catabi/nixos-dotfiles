@@ -137,6 +137,7 @@
     texlivePackages.latexmk
     texliveFull
     miktex
+    texlivePackages.pdftex
   ];
   ## Obs with Nvidia and plugins
   programs.obs-studio = {
