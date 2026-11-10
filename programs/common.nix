@@ -135,6 +135,7 @@
     #dijo #todo list tui
     vimPlugins.vimtex
     texliveFull
+    miktex
   ];
   ## Obs with Nvidia and plugins
   programs.obs-studio = {
