@@ -6,6 +6,7 @@
     # most settings are documented in the appendix
     settings = {
       vim = {
+        startPlugins = [pkgs.vimPlugins.vimtex];
         theme = {
           enable = true;
           name = "catppuccin";
@@ -49,15 +50,32 @@
           enableFormat = true;
 
           nix.enable = true;
+
           python.enable = true;
           bash.enable = true;
           sql.enable = true;
+          tex.enable = true;
+          lua.enable = true;
+          java.enable = true;
         };
         options = {
           tabstop = 2;
           shiftwidth = 2;
           wrap = true;
           linebreak = true;
+        };
+        git = {
+          enable = true;
+          gitsigns.enable = true;
+        };
+        extraPlugins = with pkgs.vimPlugins; {
+          vimtex = {
+            package = vimtex;
+            setup = ''
+              vim.g.vimtex_view_method = "zathura"
+              vim.g.vimtex_compiler_method = "latexmk"
+            '';
+          };
         };
       };
     };
