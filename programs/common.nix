@@ -41,14 +41,12 @@
     ## terminals
     alacritty
     kitty
-    kdePackages.konsole
     foot
     tmux
 
     ## Browsers
     firefox
     vivaldi
-    google-chrome
 
     ## Media Players/Editors
     qimgv
@@ -58,33 +56,15 @@
     audacity
     qpwgraph
     kdePackages.kdenlive
-    pear-desktop
     godot
     obsidian
     vscodium
     amberol
-    picard
+    #picard # for music automatic metadata
     aseprite
-
-    /*
-    # DAWS
-    lmms
-    reaper
-    reaper-sws-extension
-    */
-    #davinci-resolve
-
     eloquent
 
     ## Screenshots and recording
-    msnap
-    # -> dependencies of msnap
-    satty
-    gpu-screen-recorder
-    quickshell
-    wayfreeze
-    grim
-    slurp
 
     ## File Stuff
     kdePackages.dolphin
@@ -101,7 +81,7 @@
     unzip
     meson
     gnumake
-    easytag
+    #easytag # manual music tags
 
     ## Yazi
     yazi
@@ -133,10 +113,8 @@
     openjdk
     python3
     jq
-    nodejs
 
     ## Misc
-    #xdg-desktop-portal-gtk
     kdePackages.qtsvg
     wineWow64Packages.waylandFull
     nixd
@@ -145,19 +123,16 @@
     cava
     gh
     gnupg
-    git-crypt
-    fuzzel
     gnome-calculator
     libsForQt5.qt5ct
     #cinny-desktop
     yt-dlp
-    jp2a
-    kdePackages.filelight
+    #jp2a # image to ascii
+    #kdePackages.filelight
     sops
-    #greenfoot
     gsettings-desktop-schemas
     melonloader-installer
-    dijo
+    #dijo #todo list tui
     vimPlugins.vimtex
     texliveFull
   ];
