@@ -133,13 +133,14 @@
     gsettings-desktop-schemas
     melonloader-installer
     #dijo #todo list tui
+
     vimPlugins.vimtex
     texlivePackages.latexmk
     texliveFull
-    miktex
-    texlivePackages.pdftex
-    texlivePackages.lastpage
-    texlab
+    #miktex
+    #texlivePackages.pdftex
+    #texlivePackages.lastpage
+    #texlab
   ];
   ## Obs with Nvidia and plugins
   programs.obs-studio = {
