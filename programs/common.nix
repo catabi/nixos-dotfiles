@@ -128,7 +128,7 @@
     #cinny-desktop
     yt-dlp
     #jp2a # image to ascii
-    #kdePackages.filelight
+    kdePackages.filelight
     sops
     gsettings-desktop-schemas
     melonloader-installer
