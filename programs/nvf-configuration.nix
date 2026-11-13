@@ -10,7 +10,7 @@
         theme = {
           enable = true;
           name = "catppuccin";
-          style = "macchiato";
+          style = "frappe";
         };
         ui = {
           borders.enable = true;
