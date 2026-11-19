@@ -42,10 +42,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    #    mcsr-nixos = {
-    #      url = "https://git.uku3lig.net/uku/mcsr-nixos/archive/main.tar.gz";
-    #      inputs.nixpkgs.follows = "nixpkgs";
-    #    };
+    mcsr-nixos = {
+      url = "https://git.uku3lig.net/uku/mcsr-nixos/archive/main.tar.gz";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
@@ -57,6 +57,7 @@
     sops-nix,
     mangowm,
     msnap,
+    mcsr-nixos,
     ...
   } @ inputs: {
     nixosConfigurations.nixos-btw = nixpkgs.lib.nixosSystem {

@@ -78,6 +78,7 @@
       kitty = "kitty -c ~/dots/config/kitty/kitty.conf";
       terrServ = "sudo -u terraria tmux -S /var/lib/terraria/terraria.sock attach";
       gitcommit = "~/dots/scripts/commit.sh";
+      gitsetup = "~/dots/scripts/git-setup.sh";
     };
 
     initExtra = ''

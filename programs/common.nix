@@ -1,11 +1,13 @@
 {
   pkgs,
   inputs,
+  mcsr-nixos,
   ...
 }: {
   imports = [
     ./nvf-configuration.nix
     #./yazi/yazi.nix
+    #./mcsr-nixos.nix
   ];
 
   # List packages installed in system profile. To search, run:
@@ -141,6 +143,7 @@
     #texlivePackages.pdftex
     #texlivePackages.lastpage
     #texlab
+    ninjabrain-bot
   ];
   ## Obs with Nvidia and plugins
   programs.obs-studio = {
