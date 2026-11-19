@@ -1,10 +1,10 @@
 #!/bin/sh
 set -e
-cd ~/.dots
+cd ~/dots
 git add .
-sudo nix flake update --flake ~/.dots
+sudo nix flake update --flake ~/dots
 git add .
-sudo nixos-rebuild switch --flake ~/.dots#nixos-btw
+sudo nixos-rebuild switch --flake ~/dots#nixos-btw
 git add .
 echo "Commit Message: "
 read -r commitMessage

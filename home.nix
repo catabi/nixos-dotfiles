@@ -57,33 +57,33 @@
   programs.bash = {
     enable = true;
     shellAliases = {
-      nc = "nvim ~/.dots/.";
-      nrs = "sudo nixos-rebuild switch --flake ~/.dots#nixos-btw";
-      nrsu = "sudo nixos-rebuild switch --flake ~/.dots#nixos-btw --upgrade";
-      nfu = "sudo nix flake update --flake ~/.dots"; # nix flake update
-      hypr = "nvim ~/.dots/config/mango/config.conf";
-      binds = "nvim ~/.dots/config/mango/keybinds.conf";
-      wr = "nvim ~/.dots/config/mango/windowrules.conf";
-      as = "nvim ~/.dots/config/mango/autostart.conf";
-      home = "nvim ~/.dots/home.nix";
-      flake = "nvim ~/.dots/flake.nix";
-      pkgs = "nvim ~/.dots/programs/common.nix"; #nixpkgs
+      nc = "nvim ~/dots/.";
+      nrs = "sudo nixos-rebuild switch --flake ~/dots#nixos-btw";
+      nrsu = "sudo nixos-rebuild switch --flake ~/dots#nixos-btw --upgrade";
+      nfu = "sudo nix flake update --flake ~/dots"; # nix flake update
+      hypr = "nvim ~/dots/config/mango/config.conf";
+      binds = "nvim ~/dots/config/mango/keybinds.conf";
+      wr = "nvim ~/dots/config/mango/windowrules.conf";
+      as = "nvim ~/dots/config/mango/autostart.conf";
+      home = "nvim ~/dots/home.nix";
+      flake = "nvim ~/dots/flake.nix";
+      pkgs = "nvim ~/dots/programs/common.nix"; #nixpkgs
       ns = "nix-shell";
       p = "python3 ";
-      m = "~/.dots/scripts/mount.sh";
-      mg = "mango -c ~/.dots/config/mango/config.conf";
-      upg = "~/.dots/scripts/update-and-push.sh"; #update push git
-      sp = "~/.dots/scripts/mangoscratch.sh";
-      ff = "fastfetch -c ~/.dots/config/fastfetch/config.jsonc";
-      kitty = "kitty -c ~/.dots/config/kitty/kitty.conf";
+      m = "~/dots/scripts/mount.sh";
+      mg = "mango -c ~/dots/config/mango/config.conf";
+      upg = "~/dots/scripts/update-and-push.sh"; #update push git
+      sp = "~/dots/scripts/mangoscratch.sh";
+      ff = "fastfetch -c ~/dots/config/fastfetch/config.jsonc";
+      kitty = "kitty -c ~/dots/config/kitty/kitty.conf";
       terrServ = "sudo -u terraria tmux -S /var/lib/terraria/terraria.sock attach";
-      gitcommit = "~/.dots/scripts/commit.sh";
+      gitcommit = "~/dots/scripts/commit.sh";
     };
 
     initExtra = ''
         export PS1='\[\e[38;5;166m\]\u \[\e[38;5;204m\]\w\[\e[0m\] \[\e[38;5;214m\]\$\[\e[0m\] \[\e[38;5;166m\]>\[\e[0m\] '
       # bash-prompt-generator.org
-      fastfetch -c ~/.dots/config/fastfetch/config.jsonc
+      fastfetch -c ~/dots/config/fastfetch/config.jsonc
     '';
   };
 
