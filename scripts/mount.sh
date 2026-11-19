@@ -11,7 +11,7 @@ while true; do
     mount="unmount"
     break
     ;;
-  []*)
+  "")
     mount="mount"
     ;;
   *) echo "Answer m to Mount and u to Unmount " ;;

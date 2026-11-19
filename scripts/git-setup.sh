@@ -8,7 +8,7 @@ case $initrepo in
 [Nn]*)
   initrepo=false
   ;;
-[]*)
+"")
   initrepo=false
   ;;
 esac
